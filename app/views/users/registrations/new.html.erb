@@ -7,6 +7,10 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  <div class="field">
+    <%= f.label :name, 'Nombre' %><br />
+    <%= f.text_field :name, autocomplete: "Nombre" %>
+  </div>
 
   <div class="field">
     <%= f.label :password %>
