@@ -1,0 +1,57 @@
+<%= form_with(model: store_extra, local: true) do |form| %>
+  <% if store_extra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store_extra.errors.count, "error") %> prohibited this store_extra from being saved:</h2>
+
+      <ul>
+      <% store_extra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :link_facebook %>
+    <%= form.text_field :link_facebook %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_instagram %>
+    <%= form.text_field :link_instagram %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_whatsapp %>
+    <%= form.text_field :link_whatsapp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_web %>
+    <%= form.text_field :link_web %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horario_open %>
+    <%= form.time_select :horario_open %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horario_closed %>
+    <%= form.time_select :horario_closed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :store_id %>
+    <%= form.text_field :store_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :store_extras
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
   resources :stores
   resources :categories
   root to: 'categories#index'

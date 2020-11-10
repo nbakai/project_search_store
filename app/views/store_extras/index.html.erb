@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Store Extras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Link facebook</th>
+      <th>Link instagram</th>
+      <th>Link whatsapp</th>
+      <th>Link web</th>
+      <th>Horario open</th>
+      <th>Horario closed</th>
+      <th>Description</th>
+      <th>Store</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @store_extras.each do |store_extra| %>
+      <tr>
+        <td><%= store_extra.link_facebook %></td>
+        <td><%= store_extra.link_instagram %></td>
+        <td><%= store_extra.link_whatsapp %></td>
+        <td><%= store_extra.link_web %></td>
+        <td><%= store_extra.horario_open %></td>
+        <td><%= store_extra.horario_closed %></td>
+        <td><%= store_extra.description %></td>
+        <td><%= store_extra.store %></td>
+        <td><%= link_to 'Show', store_extra %></td>
+        <td><%= link_to 'Edit', edit_store_extra_path(store_extra) %></td>
+        <td><%= link_to 'Destroy', store_extra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Store Extra', new_store_extra_path %>

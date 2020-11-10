@@ -1,0 +1,2 @@
+module StoreExtrasHelper
+end
