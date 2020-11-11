@@ -1,0 +1,2 @@
+module StorextrasHelper
+end
