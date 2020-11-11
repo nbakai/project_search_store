@@ -24,4 +24,13 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  # if User.find_by_email(params[:user][:email]).present?
+  #   if User.find_by_email(params[:user][:email]).try(:confirmed_at).present?
+  #    super
+  #   else
+  #    redirect_to :back, notice:  'Please confirm your email first'
+  #   end
+  # else
+  #   redirect_to :back, notice:  'User not found'
+  # end
 end
