@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_11_11_235628) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
+    t.string "address"
+    t.string "phone"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -39,15 +41,10 @@ ActiveRecord::Schema.define(version: 2020_11_11_235628) do
   end
 
   create_table "storextras", force: :cascade do |t|
-    t.string "address"
-    t.string "phone"
     t.text "description"
     t.time "horario_open"
     t.time "horario_close"
-    t.string "link_facebook"
-    t.string "link_instagram"
-    t.string "link_whatsapp"
-    t.string "link_web"
+    t.text "links"
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
