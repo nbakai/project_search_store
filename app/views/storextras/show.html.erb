@@ -1,14 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @storextra.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @storextra.phone %>
-</p>
 
 <p>
   <strong>Description:</strong>
@@ -47,7 +38,7 @@
 
 <p>
   <strong>Store:</strong>
-  <%= @storextra.store %>
+  <%= @storextra.store.name %>
 </p>
 
 <%= link_to 'Edit', edit_storextra_path(@storextra) %> |

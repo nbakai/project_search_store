@@ -1,6 +1,6 @@
 class StorextrasController < ApplicationController
   before_action :set_storextra, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_store!
   # GET /storextras
   # GET /storextras.json
   def index
@@ -69,6 +69,6 @@ class StorextrasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def storextra_params
-      params.require(:storextra).permit(:description, :horario_open, :horario_close, :link_facebook, :link_instagram, :link_whatsapp, :link_web, :store_id)
+      params.require(:storextra).permit(:description, :horario_open, :horario_close, :link_facebook, :link_instagram, :link_whatsapp, :link_web, :store_id, :category_id)
     end
 end
