@@ -33,61 +33,85 @@ Store.create(
     [
         {
             name: 'Los gorditos churrascos',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Reparaciones autos',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'e.mailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Pizzas a domicilio',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'em.ailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Pasteles y pastelitos',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'ema.ilpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Papitas y pollo',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emai.lpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'JUEGOS PS4',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'email.pararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Poleras y pantalones',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emailp.ararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Comics de todo',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emailpa.rarails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Juegos PC',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emailpar.arails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Ropa tejida',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emailpara.rails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Mas comida para llevar',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emailparar.ails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Zapatos de moda',
+            address: 'Av. España 1500',
+            phone: '+5699999999',
             email: 'emailparara.ils2020@gmail.com',
             password: '123456'
         }
@@ -130,8 +154,6 @@ User.create(
 Storextra.create(
     [
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -142,8 +164,6 @@ Storextra.create(
             store_id: 1
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -154,8 +174,6 @@ Storextra.create(
             store_id: 2
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -166,8 +184,6 @@ Storextra.create(
             store_id: 3
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -178,8 +194,6 @@ Storextra.create(
             store_id: 4
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -190,8 +204,6 @@ Storextra.create(
             store_id: 5
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -202,8 +214,6 @@ Storextra.create(
             store_id: 6
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -214,8 +224,6 @@ Storextra.create(
             store_id: 7
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -226,8 +234,6 @@ Storextra.create(
             store_id: 8
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -238,8 +244,6 @@ Storextra.create(
             store_id: 9
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -250,8 +254,6 @@ Storextra.create(
             store_id: 10
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",
@@ -262,8 +264,6 @@ Storextra.create(
             store_id: 11
         },
         {
-            address: 'Av. España 1500',
-            phone: '+5699999999',
             description: 'Tienda donde se venden mucha variedad de cosas',
             horario_open: "10:00",
             horario_close: "19:00",

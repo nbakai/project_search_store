@@ -65,7 +65,10 @@ ActiveRecord::Schema.define(version: 2020_11_12_225930) do
     t.text "description"
     t.time "horario_open"
     t.time "horario_close"
-    t.text "links"
+    t.string "link_web"
+    t.string "link_facebook"
+    t.string "link_instagram"
+    t.string "link_whatsapp"
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
