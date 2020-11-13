@@ -1,4 +1,4 @@
 class Storextra < ApplicationRecord
-  belongs_to :store, dependent: :destroy
-  belongs_to :category, dependent: :destroy
+  belongs_to :store
+  belongs_to :category
 end

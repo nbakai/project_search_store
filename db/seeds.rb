@@ -33,35 +33,35 @@ Store.create(
     [
         {
             name: 'Los gorditos churrascos',
-            address: 'Av. España 1500',
+            address: 'Av. España 1000',
             phone: '+5699999999',
             email: 'emailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Reparaciones autos',
-            address: 'Av. España 1500',
+            address: 'Av. España 1100',
             phone: '+5699999999',
             email: 'e.mailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Pizzas a domicilio',
-            address: 'Av. España 1500',
+            address: 'Av. España 1200',
             phone: '+5699999999',
             email: 'em.ailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Pasteles y pastelitos',
-            address: 'Av. España 1500',
+            address: 'Av. España 1300',
             phone: '+5699999999',
             email: 'ema.ilpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Papitas y pollo',
-            address: 'Av. España 1500',
+            address: 'Av. España 1400',
             phone: '+5699999999',
             email: 'emai.lpararails2020@gmail.com',
             password: '123456'
@@ -75,42 +75,42 @@ Store.create(
         },
         {
             name: 'Poleras y pantalones',
-            address: 'Av. España 1500',
+            address: 'Av. España 1600',
             phone: '+5699999999',
             email: 'emailp.ararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Comics de todo',
-            address: 'Av. España 1500',
+            address: 'Av. España 1700',
             phone: '+5699999999',
             email: 'emailpa.rarails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Juegos PC',
-            address: 'Av. España 1500',
+            address: 'Av. España 1800',
             phone: '+5699999999',
             email: 'emailpar.arails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Ropa tejida',
-            address: 'Av. España 1500',
+            address: 'Av. España 1900',
             phone: '+5699999999',
             email: 'emailpara.rails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Mas comida para llevar',
-            address: 'Av. España 1500',
+            address: 'Av. España 2000',
             phone: '+5699999999',
             email: 'emailparar.ails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Zapatos de moda',
-            address: 'Av. España 1500',
+            address: 'Av. España 2100',
             phone: '+5699999999',
             email: 'emailparara.ils2020@gmail.com',
             password: '123456'
