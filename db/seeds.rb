@@ -33,84 +33,84 @@ Store.create(
     [
         {
             name: 'Los gorditos churrascos',
-            address: 'Av. Bulnes 1000',
+            
             phone: '+5699999999',
             email: 'emailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Reparaciones autos',
-            address: 'Av. Bulnes 1100',
+            
             phone: '+5699999999',
             email: 'e.mailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Pizzas a domicilio',
-            address: 'Av. Bulnes 1200',
+            
             phone: '+5699999999',
             email: 'em.ailpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Pasteles y pastelitos',
-            address: 'Av. Bulnes 1300',
+            
             phone: '+5699999999',
             email: 'ema.ilpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Papitas y pollo',
-            address: 'Av. Bulnes 1400',
+            
             phone: '+5699999999',
             email: 'emai.lpararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'JUEGOS PS4',
-            address: 'Av. Bulnes 1500',
+            
             phone: '+5699999999',
             email: 'email.pararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Poleras y pantalones',
-            address: 'Av. Bulnes 1600',
+            
             phone: '+5699999999',
             email: 'emailp.ararails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Comics de todo',
-            address: 'Av. Bulnes 1700',
+            
             phone: '+5699999999',
             email: 'emailpa.rarails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Juegos PC',
-            address: 'Av. Bulnes 1800',
+            
             phone: '+5699999999',
             email: 'emailpar.arails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Ropa tejida',
-            address: 'Av. Bulnes 1900',
+            
             phone: '+5699999999',
             email: 'emailpara.rails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Mas comida para llevar',
-            address: 'Av. Bulnes 2000',
+            
             phone: '+5699999999',
             email: 'emailparar.ails2020@gmail.com',
             password: '123456'
         },
         {
             name: 'Zapatos de moda',
-            address: 'Av. Bulnes 2100',
+            
             phone: '+5699999999',
             email: 'emailparara.ils2020@gmail.com',
             password: '123456'
