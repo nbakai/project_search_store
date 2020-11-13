@@ -3,20 +3,20 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "stores/shared/error_messages", resource: resource %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "Nombre" %>
+    <%= f.label :name, "Nombre de la tienda" %><br />
+    <%= f.text_field :name, autofocus: true %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autocomplete: "Dirección" %>
+    <%= f.label :address, "Dirección" %><br />
+    <%= f.text_field :address  %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone,  autocomplete: "Teléfono" %>
+    <%= f.label :phone, "Teléfono" %><br />
+    <%= f.text_field :phone  %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.label :email, "E-mail"  %><br />
+    <%= f.email_field :email  %>
   </div>
 
   <div class="field">
