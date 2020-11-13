@@ -46,8 +46,7 @@
     <%= form.text_field :link_web %>
   </div>
   <div class="field">
-    <%= form.label :store_id %>
-    <%= form.text_field :store_id, value:current_store.id %>
+    <%= form.hidden_field :store_id, value:current_store.id %>
   </div>
 
   <div class="field">

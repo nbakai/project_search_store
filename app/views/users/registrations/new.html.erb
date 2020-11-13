@@ -11,7 +11,10 @@
     <%= f.label :name, 'Nombre' %><br />
     <%= f.text_field :name, autocomplete: "Nombre" %>
   </div>
-
+  <div class="field">
+    <%= form.label :avatar, 'Sube tu foto de perfil' %>
+    <%= form.file_field :avatar %>
+  </div>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
