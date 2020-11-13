@@ -3,7 +3,7 @@
 <h1>Storextras</h1>
 
 <% @storextras.each do |storextra| %>
- <% if storextra.store.id == current_store.id %>
+ 
 <table>
   <thead>
     <tr>
@@ -34,14 +34,12 @@
         <td><%= link_to 'Edit', edit_storextra_path(storextra) %></td>
  
       </tr>    
-  <%else %>
-  <%= link_to 'New Storextra', new_storextra_path %>
-<%end%>
   </tbody>
 </table>
+ 
 <%end%>
 <br>
-
-  <%= link_to 'Inicio', root_path %>
+<%= link_to 'New Storextra', new_storextra_path %> <br>
+<%= link_to 'Inicio', root_path %>
 
  

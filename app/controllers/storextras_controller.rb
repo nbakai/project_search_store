@@ -4,7 +4,7 @@ class StorextrasController < ApplicationController
   # GET /storextras
   # GET /storextras.json
   def index
-    @storextras = Storextra.all
+    @storextras = Storextra.where(store_id: current_store.id)
   end
 
   # GET /storextras/1
