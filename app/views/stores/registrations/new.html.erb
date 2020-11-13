@@ -7,6 +7,14 @@
     <%= f.text_field :name, autofocus: true, autocomplete: "Nombre" %>
   </div>
   <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autocomplete: "Dirección" %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone,  autocomplete: "Teléfono" %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>

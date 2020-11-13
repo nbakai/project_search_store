@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Category.delete_all 
-Store.delete_all 
-User.delete_all
 Storextra.delete_all 
+Store.delete_all 
+Category.delete_all 
+User.delete_all
 
 Category.create(
     [
@@ -161,7 +161,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 1
+            store_id: 1,
+            category_id: 1
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -171,7 +172,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 2
+            store_id: 2,
+            category_id: 2
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -181,7 +183,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 3
+            store_id: 3,
+            category_id: 1
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -191,7 +194,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 4
+            store_id: 4,
+            category_id: 1
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -201,7 +205,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 5
+            store_id: 5,
+            category_id: 1
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -211,7 +216,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 6
+            store_id: 6,
+            category_id: 3
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -221,7 +227,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 7
+            store_id: 7,
+            category_id: 4
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -231,7 +238,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 8
+            store_id: 8,
+            category_id: 3
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -241,7 +249,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 9
+            store_id: 9,
+            category_id: 3
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -251,7 +260,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 10
+            store_id: 10,
+            category_id: 4
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -261,7 +271,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 11
+            store_id: 11,
+            category_id: 1
         },
         {
             description: 'Tienda donde se venden mucha variedad de cosas',
@@ -271,7 +282,8 @@ Storextra.create(
             link_instagram: 'www.instagram.com',
             link_whatsapp: 'www.whatsap.com',
             link_web: 'www.google.com',
-            store_id: 12
+            store_id: 12,
+            category_id: 4
         }
     ]
 )

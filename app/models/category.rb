@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-    has_many :storextras 
+    has_many :storextras, dependent: :destroy
 end
