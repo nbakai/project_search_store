@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   }
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
   }
+  devise_scope :user do
+    delete 'sign_out', to: 'devise/sessions#destroy'
+  end
   
   resources :categories
   root to: 'categories#index'

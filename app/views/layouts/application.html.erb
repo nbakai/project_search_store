@@ -12,6 +12,24 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <div class="row">
+        <aside class="col-md-4 ">
+          <section class="user">
+            <h3 class= "text-bold">Bienvenido <%= current_user.name%>!</h3><br>
+            <%#=image_tag"#{current_user.avatar}", style: 'height:150px; width:150px;'%><br>
+            <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
+          </section>
+        </aside>
+        <hr>
+        <br>
+      <% else %>
+        <%= link_to 'Crear cuenta', new_user_registration_path %> | 
+        <%= link_to 'Iniciar sesión', new_user_session_path%>
+        <br>
+      <%end%>
+      <br>
+      <%= yield %>
+    </div>
   </body>
 </html>
