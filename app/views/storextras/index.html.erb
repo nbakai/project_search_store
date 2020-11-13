@@ -2,6 +2,8 @@
 
 <h1>Storextras</h1>
 
+<% @storextras.each do |storextra| %>
+ <% if storextra.store.id == current_store.id %>
 <table>
   <thead>
     <tr>
@@ -18,9 +20,8 @@
   </thead>
 
   <tbody>
-    <% @storextras.each do |storextra| %>
       <tr>
-    
+     
         <td><%= storextra.description %></td>
         <td><%= storextra.horario_open %></td>
         <td><%= storextra.horario_close %></td>
@@ -31,16 +32,16 @@
         <td><%= storextra.store.name %></td>
         <td><%= link_to 'Show', storextra %></td>
         <td><%= link_to 'Edit', edit_storextra_path(storextra) %></td>
-        <td><%= link_to 'Destroy', storextra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    
-  </tbody>
-</table>
-
-<br>
-<% if storextra.id?%>
-  <%= link_to 'Inicio', root_path %>
-<% else %>
+ 
+      </tr>    
+  <%else %>
   <%= link_to 'New Storextra', new_storextra_path %>
 <%end%>
-<% end %>
+  </tbody>
+</table>
+<%end%>
+<br>
+
+  <%= link_to 'Inicio', root_path %>
+
+ 
