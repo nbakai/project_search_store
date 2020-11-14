@@ -53,7 +53,10 @@
     <%= form.label :category_id %> 
     <%= form.select :category_id, options_from_collection_for_select( Category.all, :id, :name), prompt: 'Elige una categoría'%>
   </div>
-
+  <div class="field">
+    <%= form.label :avatar, 'Sube la foto de perfil de tu tienda' %>
+    <%= form.file_field :avatar %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -69,6 +69,6 @@ class StorextrasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def storextra_params
-      params.require(:storextra).permit(:description, :horario_open, :horario_close, :link_facebook, :link_instagram, :link_whatsapp, :link_web, :store_id, :category_id)
+      params.require(:storextra).permit(:description, :horario_open, :horario_close, :link_facebook, :link_instagram, :link_whatsapp, :link_web, :store_id, :category_id, :avatar)
     end
 end

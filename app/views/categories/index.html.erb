@@ -23,5 +23,41 @@
 </table>
 
 <br>
+<% @storextras.each do |storextra| %>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Description</th>
+      <th>Horario open</th>
+      <th>Horario close</th>
+      <th>Link facebook</th>
+      <th>Link instagram</th>
+      <th>Link whatsapp</th>
+      <th>Link web</th>
+      <th>Store</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+     
+        <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached? %></td> 
+        <td><%= storextra.description %></td>
+        <td><%= storextra.horario_open %></td>
+        <td><%= storextra.horario_close %></td>
+        <td><%= storextra.link_facebook %></td>
+        <td><%= storextra.link_instagram %></td>
+        <td><%= storextra.link_whatsapp %></td>
+        <td><%= storextra.link_web %></td>
+        <td><%= storextra.store.name %></td>
+ 
+      </tr>    
+  </tbody>
+</table>
+ 
+<%end%>
 
 <%= link_to 'New Category', new_category_path %>
