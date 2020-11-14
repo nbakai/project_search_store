@@ -3,7 +3,7 @@ require_relative 'application'
 
 # Initialize the Rails application.
 Rails.application.initialize!
-  
+config.action_mailer.default_url_options = { :host => 'https://busca-tiendas.herokuapp.com/' } 
     ActionMailer::Base.smtp_settings = {
       :address => "smtp.gmail.com",
       :port => 587,
