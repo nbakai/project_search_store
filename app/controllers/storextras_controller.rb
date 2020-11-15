@@ -1,6 +1,6 @@
 class StorextrasController < ApplicationController
   before_action :set_storextra, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_store!
+  
   # GET /storextras
   # GET /storextras.json
   def index

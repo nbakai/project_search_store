@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <strong>Store:</strong>
+  <%= @storextra.store.name %>
+</p>
 
 <p>
   <strong>Description:</strong>
@@ -36,10 +39,38 @@
   <%= @storextra.link_web %>
 </p>
 
-<p>
-  <strong>Store:</strong>
-  <%= @storextra.store.name %>
-</p>
 
-<%= link_to 'Edit', edit_storextra_path(@storextra) %> |
-<%= link_to 'Back', storextras_path %>
+<h3>Comentarios</h3>
+
+
+<%= form_with(model: @comment, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :content, "Deja tu comentario aquí!" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, value:current_user.id %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :storextra_id, value: @storextra.id %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<% @storextra.comments.each do |comment|%>
+  <p><%= comment.content %> </p>
+   <p><%= comment.user.name %> </p>
+    <p><% if user_signed_in? && comment.user_id == current_user.id%>
+      <%= link_to ' Editar', edit_comment_path(comment) %>
+      <%= link_to ' Borrar', comment, method: :delete, data: { confirm: 'Estás seguro?' } %></p>  
+    <%end%>
+  <%end%>
+<%= link_to 'Edit', edit_storextra_path(@storextra) %> <br>
+<% if store_signed_in? && storextra.store_id == current_store.id%>
+  <%= link_to 'Back', storextras_path %> <br>
+<%end%>
+ <%= link_to 'Inicio', root_path %>
