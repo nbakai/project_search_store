@@ -28,11 +28,13 @@
     <% end %>
   </tbody>
 </table>
- <% if !user_signed_in?%>
- <div class="text-justify">
-  <h3 > Hay una gran cantidad de tiendas en la ciudad que uno solo conoce por datos y no hay un lugar objetivo dónde buscar y encontrar todas o una gran cantidad en un solo lugar. Por lo que se creo este buscador de tiendas, en el que si usted se registra puede encontrar la tienda que anda buscando.</h3>
- </div>
+ <% if !user_signed_in? %>
+  <% if  !store_signed_in? %>
+    <div class="text-justify">
+      <h3 > Hay una gran cantidad de tiendas en la ciudad que uno solo conoce por datos y no hay un lugar objetivo dónde buscar y encontrar todas o una gran cantidad en un solo lugar. Por lo que se creo este buscador de tiendas, en el que si usted se registra puede encontrar la tienda que anda buscando.</h3>
+    </div>
  <%end%>
+<%end%>
 <br>
 <% @storextras.each do |storextra| %>
 <table >
