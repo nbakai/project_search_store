@@ -1,12 +1,12 @@
-<% if @update %>
-  window.location.replace('<%= edit_user_registration_path %>');
-<% else %>
+<%# if @update %>
+//  window.location.replace('<%= edit_user_registration_path %>');
+<%# else %>
 
-  <% if @user.errors.messages.size > 0 %>
-    <% @user.errors.each do |attr,err| %>
-        $('#js-error-block').append('<%= attr %> <%= err %> <br/>');  
-        $('.alert').show(); 
-    <% end %>
-  <% end %> 
+  <%# if @user.errors.messages.size > 0 %>
+    <%# @user.errors.each do |attr,err| %>
+     //   $('#js-error-block').append('<%= attr %> <%= err %> <br/>');  
+      //  $('.alert').show(); 
+    <%# end %>
+  <%# end %> 
 
-<% end %>
+<%# end %>
