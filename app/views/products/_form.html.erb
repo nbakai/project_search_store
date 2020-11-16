@@ -39,9 +39,12 @@
     <%= form.label :image, 'Sube la foto del producto aquí' %>
     <%= form.file_field :image %>
   </div>
-  <%# <div class="field">
-    <%= form.hidden_field :storextra_id, value: storextra.id %>
-  <%#</div> %>
+  <div class="field">
+    <%= form.hidden_field :store, value: current_store.id %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :storextra_id %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

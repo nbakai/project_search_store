@@ -67,7 +67,7 @@ class ProductsController < InheritedResources::Base
       @product = Product.find(params[:id])
     end
     def product_params
-      params.require(:product).permit(:name, :description, :stock, :price, :sku, :image)
+      params.require(:product).permit(:name, :description, :stock, :price, :sku, :image, :store, :storextra)
     end
 
 end
