@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header bg-dark">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <a href="<%=root_url%>" class= "btn btn-info btn-sm pull-right">Continue Shopping</a>
+        <div class="clearfix">
+        </div>
+    </div>
+    <div class="card-body">
+        <%@order.order_items.includes(:product).each do |item|%>
+        <div class="row">
+        <div class="col-xs-2 col-md-2">
+        <img class="img-resposive" src="http://placehold.it/120x80" alt="preview">
+        </div>
+        <div class="col-xs-4 col-md-6">
+            <h4 class="product-name"><strong><%=item.product.name%></strong> </h4>
+            <h4><small><%= item.product.description%></small> </h4>
+        </div>
+        <div class="col-xs-6 col-md-4 row">
+            <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
+                <h6><strong><%= item.price%><span class="text-muted">x</span><%= item.quantity%></strong> </h6>
+            </div>
+            <div class="col-xs-2 col-md-2"></div>
+        </div>
+        </div>
+        <hr>
+        <%end%>
+    </div>
+    <div class="car-footer">
+       <%= link_to 'Pay', pay_with_paypal_cart_path, method: :post, class: 'btn btn-success pull-right'%>
+       <div class="pull-right" style="margin: 5px">
+        Total: $<b><%= @order.total%></b>
+       </div>
+    </div>
+    </div>
+</div>

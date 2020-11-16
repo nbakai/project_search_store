@@ -2,6 +2,7 @@
 <p>
   <strong>Store:</strong>
   <%= @storextra.store.name %>
+  <%=image_tag @storextra.avatar, style: 'height:150px; width:150px;' if @storextra.avatar.attached?%>
 </p>
 
 <p>
@@ -37,12 +38,46 @@
 <p>
   <strong>Link web:</strong>
   <%= @storextra.link_web %>
-</p>
+</p> <br>
+<%= link_to 'New Product', new_product_path %>
+<%= form_with(model: @product, local: true) do |form| %>
+  <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
 
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :stock %>
+      <%= form.number_field :stock %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price %>
+    </div>
+
+    <div class="field">
+      <%= form.label :sku %>
+      <%= form.text_field :sku %>
+    </div>
+    <div class="field">
+      <%= form.label :image, 'Sube la foto del producto aquí' %>
+      <%= form.file_field :image %>
+    </div>
+    <div class="field">
+      <%= form.hidden_field :storextra_id, value: @storextra.id %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>
 
 <h3>Comentarios</h3>
-
-
 <%= form_with(model: @comment, local: true) do |form| %>
 
   <div class="field">
@@ -63,14 +98,54 @@
 
 <% @storextra.comments.each do |comment|%>
   <p><%= comment.content %> </p>
-   <p><%= comment.user.name %> </p>
-    <p><% if user_signed_in? && comment.user_id == current_user.id%>
+  <p><%= comment.user.name %> </p>
+  <p><% if user_signed_in? && comment.user_id == current_user.id%>
       <%= link_to ' Editar', edit_comment_path(comment) %>
       <%= link_to ' Borrar', comment, method: :delete, data: { confirm: 'Estás seguro?' } %></p>  
     <%end%>
-  <%end%>
-<%= link_to 'Edit', edit_storextra_path(@storextra) %> <br>
+<%end%>
+<h2 class='text-center'>Productos</h2>
+<div class="row">
+  <div class="col-md-8 offset-2">
+    <div class="container">
+      <div class="row">
+      <%if @products != nil%> 
+        <% @products.each do |product|  %>
+          <div class="col-md-3">
+            <div class="card">
+              <img class="card-img-top" src="<%=image_tag product.image %>" alt="<%= product.name%>"/>
+              <div class="card-block">
+                <h5 class="card-title"><%= product.name %></h5>
+                <div class="card-text">
+                  <div class="badge badge-primary"><%= product.categories.first.name %></div>
+                    <div>$<%= product.price %></div>
+                </div>
+                <div class="row float-right">
+                  <div class="col-md-12">
+                    <%= form_for :cart, url: cart_path, method: :put do |f| %>
+                      <%= f.hidden_field :product_id, value: product.id %>
+                      <%= f.hidden_field :quantity, value: 1 %>
+                      <%= f.submit "Add to cart" %>
+                    <% end %>
+                    <button class="btn btn-primary btn-sm">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%end%>
+
+
+
+
 <% if store_signed_in? && storextra.store_id == current_store.id%>
+  <%= link_to 'Edit', edit_storextra_path(@storextra) %> <br>
   <%= link_to 'Back', storextras_path %> <br>
 <%end%>
  <%= link_to 'Inicio', root_path %>

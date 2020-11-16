@@ -23,8 +23,6 @@ class CommentsController < InheritedResources::Base
   # POST /comments
   # POST /comments.json
   def create
-  
-   
     @comment = Comment.new(comment_params)
    
     respond_to do |format|

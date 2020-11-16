@@ -1,15 +1,11 @@
-<div class="user">
-    <h3 class= "text-bold">Bienvenido <%= current_user.name%>!</h3><br>
-    <%=image_tag"#{current_user.avatar}", style: 'height:150px; width:150px;'%><br>
-    <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
-</div>
+
 <div class="col-md-8">
 
     <section >
       <h1>Perfil: </h1>
-      <h2><%= @user.name %> <%=image_tag"#{@user.avatar}", style: 'height:100px; width:100px;'%></h2>
+      <h2><%= @user.name %> <%=image_tag @user.avatar, style: 'height:100px; width:100px;'%></h2>
     
     </section>
   
-  <%= link_to 'Inicio', tweets_path %>
+  <%= link_to 'Inicio', root_path %>
 </div>

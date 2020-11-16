@@ -1,0 +1,27 @@
+<h2 class='text-center'>Productos</h2>
+<% @products.each_slice(4) do |products| %>
+<div class="card-deck">
+    <% products.each do |product|%>
+    <div class='card'>
+        <%= image_tag 'https://cdn.pixabay.com/photo/2017/11/22/18/49/shiba-2971192_960_720.jpg', class: 'card-img-top img-fluid'%>
+            <h5 class='card-title'><%= product.name %></h5>
+        <div class='card-body'>
+                <div class='card-text'>
+                    <div class='badge badge-primary'> <%= product.categories.first.name %>
+                    </div>
+                    <div>
+                        <%= number_to_currency product.price %>
+                        <%= form_for :cart, url: cart_path, method: :put do |f|%>
+                            <%= f.hidden_field :product_id, value: product.id%>
+                            <%= f.hidden_field :quantity, value: 1%>
+                            <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm float-rigth'%>
+                        <%end%>
+                    </div>
+                    
+                </div>
+        </div>
+    </div>    
+    <%end%>
+</div>
+<br>
+<%end%>
