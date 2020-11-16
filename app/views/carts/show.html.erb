@@ -26,9 +26,10 @@
         <%end%>
     </div>
     <div class="car-footer">
-       <%= link_to 'Pay', pay_with_paypal_cart_path, method: :post, class: 'btn btn-success pull-right'%>
+       <%#= link_to 'Pay', pay_with_paypal_cart_path, method: :post, class: 'btn btn-success pull-right'%>
        <div class="pull-right" style="margin: 5px">
-        Total: $<b><%= @order.total%></b>
+        
+        <p><%= link_to 'Vaciar carrito', clean_orders_path, method: :delete %> </p>
        </div>
     </div>
     </div>

@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   resources :products
   resources :users 
   resource :cart, only: [:show, :update]
+  resources :orders, only: :index
+
+  delete 'orders/clean', to: 'orders#clean', as: 'clean_orders'
+  delete 'order/:id', to: 'orders#destroy', as: 'destroy_order'
+  
   post 'storextras/:id', to: 'comments#create', as:'comment_store'
   root to: 'categories#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

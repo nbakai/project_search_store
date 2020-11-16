@@ -40,42 +40,7 @@
   <%= @storextra.link_web %>
 </p> <br>
 <%= link_to 'New Product', new_product_path %>
-<%= form_with(model: @product, local: true) do |form| %>
-  <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
 
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description %>
-    </div>
-
-    <div class="field">
-      <%= form.label :stock %>
-      <%= form.number_field :stock %>
-    </div>
-
-    <div class="field">
-      <%= form.label :price %>
-      <%= form.number_field :price %>
-    </div>
-
-    <div class="field">
-      <%= form.label :sku %>
-      <%= form.text_field :sku %>
-    </div>
-    <div class="field">
-      <%= form.label :image, 'Sube la foto del producto aquí' %>
-      <%= form.file_field :image %>
-    </div>
-    <div class="field">
-      <%= form.hidden_field :storextra_id, value: @storextra.id %>
-    </div>
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-<% end %>
 
 <h3>Comentarios</h3>
 <%= form_with(model: @comment, local: true) do |form| %>
@@ -104,7 +69,7 @@
       <%= link_to ' Borrar', comment, method: :delete, data: { confirm: 'Estás seguro?' } %></p>  
     <%end%>
 <%end%>
-<h2 class='text-center'>Productos</h2>
+ <h2 class='text-center'>Productos</h2>
 <div class="row">
   <div class="col-md-8 offset-2">
     <div class="container">
@@ -117,7 +82,7 @@
               <div class="card-block">
                 <h5 class="card-title"><%= product.name %></h5>
                 <div class="card-text">
-                  <div class="badge badge-primary"><%= product.categories.first.name %></div>
+                  <div class="badge badge-primary"></div>
                     <div>$<%= product.price %></div>
                 </div>
                 <div class="row float-right">
@@ -139,7 +104,7 @@
   </div>
 </div>
 
-<%end%>
+<%end%> 
 
 
 

@@ -6,13 +6,15 @@ class StorextrasController < ApplicationController
   def index
     @storextras = Storextra.where(store_id: current_store.id)
     @storextra = Storextra.find(params[:id])
-    @products = Products.all.where(storextra_id: @storextra.id)
+    @products = Product.all
+    #@products = Products.all.where(storextra_id: @storextra.id)
     
   end
 
   # GET /storextras/1
   # GET /storextras/1.json
   def show
+    @products = Product.all
   end
 
   # GET /storextras/new

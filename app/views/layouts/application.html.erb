@@ -13,8 +13,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if user_signed_in? %>
-      <div class="row">
-        <aside class="col-md-4 ">
+      <%# <div class="row"> %>
+        <%# <aside class="col-md-2 "> %>
           <section class="user">
             <h3 class= "text-bold">Bienvenido <%= current_user.name%>!</h3><br>
             <%=image_tag current_user.avatar, style: 'height:150px; width:150px;' if current_user.avatar.attached?%><br>
@@ -22,7 +22,7 @@
             <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
             <%= link_to 'Editar perfil', edit_user_registration_path %>
           </section>
-        </aside>
+        <%# </aside> %>
         <hr>
         <br>
       <% else %>
