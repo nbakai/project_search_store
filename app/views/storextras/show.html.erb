@@ -17,7 +17,9 @@
     <% rating_prom += comment.rating.to_i%>
     <%contador += 1%>
   <%end%>
-  <%rating_prom = rating_prom / contador%>
+  <% if rating_prom != 0%>
+    <%rating_prom = rating_prom / contador%>
+  <%end%>
   <%=rating_prom%> &#11088;
 </p>
 
