@@ -4,9 +4,11 @@ class StorextrasController < ApplicationController
   # GET /storextras
   # GET /storextras.json
   def index
-    @storextras = Storextra.where(store_id: current_store.id)
-    @storextra = Storextra.find(params[:id])
+    @storextras = Storextra.all unless  store_signed_in?
+    @storextras = Storextra.where(store_id: current_store.id) if store_signed_in? 
+    @storextra = Storextra.find(params[:id]) if store_signed_in? 
     @products = Product.all
+    @storextras = Storextra.where('description LIKE ?', "%#{params[:q]}%") if params[:q]
     #@products = Products.all.where(storextra_id: @storextra.id)
     
   end

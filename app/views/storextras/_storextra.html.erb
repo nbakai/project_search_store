@@ -1,30 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Storextras</h1>
-<div>
-    <input type="text" id="q" placeholder="Busca tu tienda favorita">
-</div>
-
-<% @storextras.each do |storextra| %>
- 
-<table>
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Description</th>
-      <th>Horario open</th>
-      <th>Horario close</th>
-      <th>Link facebook</th>
-      <th>Link instagram</th>
-      <th>Link whatsapp</th>
-      <th>Link web</th>
-      <th>Store</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody id="table">
-      <tr>
+<tr>
         <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached?%></td>
         <td><%= storextra.description %></td>
         <td><%= storextra.horario_open %></td>
@@ -42,16 +16,4 @@
             <td><%= link_to 'Edit', edit_storextra_path(storextra) %></td>
           <%end%>
         <%end%>
-      </tr>    
-  </tbody>
-</table>
- <% if storextra.store_id == nil && store_signed_in? %>
-  <%= link_to 'New Storextra', new_storextra_path %> <br>
-<%end%>
-<%end%>
-<br>
-
-
-<%= link_to 'Inicio', root_path %>
-
- 
+</tr>    
