@@ -1,6 +1,6 @@
 class ProductsController < InheritedResources::Base
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :new]
+ 
   # GET /products
   # GET /products.json
   def index
@@ -67,7 +67,7 @@ class ProductsController < InheritedResources::Base
       @product = Product.find(params[:id])
     end
     def product_params
-      params.require(:product).permit(:name, :description, :stock, :price, :sku, :image, :store, :storextra)
+      params.require(:product).permit(:name, :description, :stock, :price, :sku, :image, :store_id, :storextra_id)
     end
 
 end

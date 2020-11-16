@@ -6,7 +6,7 @@ class StorextrasController < ApplicationController
   def index
     @storextras = Storextra.all unless  store_signed_in?
     @storextras = Storextra.where(store_id: current_store.id) if store_signed_in? 
-    @storextra = Storextra.find(params[:id]) if store_signed_in? 
+   
     
     @storextras = Storextra.where('description LIKE ?', "%#{params[:q]}%") if params[:q]
     #@products = Products.all.where(storextra_id: @storextra.id)
@@ -16,7 +16,12 @@ class StorextrasController < ApplicationController
   # GET /storextras/1
   # GET /storextras/1.json
   def show
-    
+    @storextra = Storextra.find(params[:id]) if store_signed_in? 
+    @product = Product.new
+    respond_to do |format|
+      format.html {}
+      format.js { @products }
+    end
   end
 
   # GET /storextras/new

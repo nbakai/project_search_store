@@ -56,6 +56,8 @@
   </tbody>
 </table>
 <%end%>
+<br>
+<h3><%= link_to 'Todas las tiendas', storextras_path %></h3> <br>
 <% if admin_user_signed_in?%>
   <%= link_to 'New Category', new_category_path %>
 <%end%>

@@ -16,7 +16,7 @@
         <% @order.order_items.includes(:product).each do |item|%>
         <div class="row">
         <div class="col-xs-2 col-md-2">
-        <img class="img-resposive" src="http://placehold.it/120x80" alt="preview">
+        <div class="card-img-top img-resposive"> <%=image_tag item.product.image, style: 'height:150px; width:150px;' %> </div>
         </div>
         <div class="col-xs-4 col-md-6">
             <h4 class="product-name"><strong><%=item.product.name%></strong> </h4>

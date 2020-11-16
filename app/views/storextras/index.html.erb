@@ -34,7 +34,7 @@
         <td><%= storextra.link_whatsapp %></td>
         <td><%= storextra.link_web %></td>
         <td><%= storextra.store.name %></td>
-        <% if user_signed_in?%>
+        <% if user_signed_in? || store_signed_in? %>
           <td><%= link_to 'Show', storextra %></td>
         <%end%>
         <% if store_signed_in?%>
