@@ -31,16 +31,24 @@
         <td><%= storextra.link_whatsapp %></td>
         <td><%= storextra.link_web %></td>
         <td><%= storextra.store.name %></td>
-        <td><%= link_to 'Show', storextra %></td>
-        <td><%= link_to 'Edit', edit_storextra_path(storextra) %></td>
- 
+        <% if user_signed_in?%>
+          <td><%= link_to 'Show', storextra %></td>
+        <%end%>
+        <% if store_signed_in?%>
+          <% if current_store.id == storextra.store_id%>
+            <td><%= link_to 'Edit', edit_storextra_path(storextra) %></td>
+          <%end%>
+        <%end%>
       </tr>    
   </tbody>
 </table>
  
 <%end%>
 <br>
-<%= link_to 'New Storextra', new_storextra_path %> <br>
+
+<% if storextra.store_id == nil && store_signed_in? %>
+  <%= link_to 'New Storextra', new_storextra_path %> <br>
+<%end%>
 <%= link_to 'Inicio', root_path %>
 
  

@@ -10,9 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -20,9 +20,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    account_update_params = devise_parameter_sanitizer.permit(:account_update)
+
+    if account_update_params[:password].blank?
+      account_update_params.delete("password")
+      account_update_params.delete("password_confirmation")
+    end
+
+    @user = User.find(current_user.id)
+
+    @update = update_resource(@user, account_update_params)
+    if @update 
+      sign_in @user, bypass: true
+      redirect_to root_path
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+   
+  end
 
   # DELETE /resource
   # def destroy
