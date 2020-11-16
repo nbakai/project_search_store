@@ -55,7 +55,7 @@
 </p> <br>
 <% if store_signed_in? %>
   <% if current_store.id == @storextra.store_id%>
-    <h5><%= link_to 'New Product', new_product_path %></h5>
+   
     <%= form_with(model: @product, data: {confirm: 'enviar datos?'}, id: 'form') do |form| %>
       <div class="field">
         <%= form.label :name %>
@@ -97,42 +97,56 @@
     <% end %>
   <%end%>
 <%end%>
-
 <h2 class='text-center'>Productos</h2>
-<div class="row"  id="productos">
-  <div class="col-md-8 offset-2">
-    <div class="container">
-      <div class="row">
-     
-        <% @storextra.products.each do |product|  %>
-          
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-img-top img-resposive"> <%=image_tag product.image, style: 'height:150px; width:150px;' %> </div>
-              <div class="card-block">
-                <h5 class="card-title"><%= product.name %></h5>
-                <div class="card-text">
-                    <div>$<%= product.price %></div>
+<div class="card-deck">
+    <% @storextra.products.each do |product|  %>
+    <div class='card'>
+        <%= image_tag product.image, class: 'card-img-top img-fluid'%>
+            <h5 class='card-title'><%= product.name %></h5>
+        <div class='card-body'>
+                <div class='card-text'>
+                    <div>
+                        <%= number_to_currency product.price %>
+                        <%= form_for :cart, url: cart_path, method: :put do |f|%>
+                            <%= f.hidden_field :product_id, value: product.id%>
+                            <%= f.hidden_field :quantity, value: 1%>
+                            <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm float-rigth'%>
+                        <%end%>
+                    </div>
+                    
                 </div>
-              </div>
-             <div class="row float-right">
-                  <div class="col-md-12">
-                    <%= form_for :cart, url: cart_path, method: :put do |f| %>
-                      <%= f.hidden_field :product_id, value: product.id %>
-                      <%= f.hidden_field :quantity, value: 1 %>
-                      <%= f.submit "Add to cart" %>
-                    <% end %>
-                  </div>
-            </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+        </div>
+    </div>    
+    <%end%>
 </div>
+<br>
+
 
 <br>
 <h3>Comentarios</h3>
+<% if user_signed_in?%>
+  <%= form_with(model: @comment, local: true) do |form| %>
 
+    <div class="field">
+      <%= form.label :content, "Deja tu comentario aquí!" %>
+      <%= form.text_area :content %>
+    </div>
+    <div class="field">
+      <%= form.label :rating, "Deja tu calificación aquí (1-5)" %>
+      <%= form.text_area :rating %>
+    </div>
+
+    <div class="field">
+      <%= form.hidden_field :user_id, value:current_user.id %>
+    </div>
+    <div class="field">
+      <%= form.hidden_field :storextra_id, value: @storextra.id %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+<%end%>
 
 <% @storextra.comments.each do |comment|%>
   <p><%= comment.content %> </p>
