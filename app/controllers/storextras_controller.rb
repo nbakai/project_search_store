@@ -1,7 +1,7 @@
 class StorextrasController < ApplicationController
   before_action :set_storextra, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_store!, only: [ :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show]
-  before_action :authenticate_store!, only: [:edit, :update, :destroy]
   # GET /storextras
   # GET /storextras.json
   def index
@@ -83,5 +83,9 @@ class StorextrasController < ApplicationController
     # Only allow a list of trusted parameters through.
     def storextra_params
       params.require(:storextra).permit(:description, :horario_open, :horario_close, :link_facebook, :link_instagram, :link_whatsapp, :link_web, :store_id, :category_id, :avatar)
+    end
+  protected
+    def authenticate_user!
+      redirect_to root_path, notice: "You must login" unless user_signed_in? || store_signed_in?
     end
 end

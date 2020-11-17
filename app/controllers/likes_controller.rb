@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-    before_action :authenticate_store!
+    before_action :authenticate_user!
     before_action :find_storextra
     before_action :find_like, only: [:destroy]
     # GET /likes
