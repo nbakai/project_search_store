@@ -10,6 +10,11 @@
   <%= link_to 'Inicio', root_path %>
 </div>
 <h3><%= link_to 'Carrito de compras', cart_path%> </h3>
+
+<h3><b>Tiendas favoritas</b> <% @user.likes.each do |like| %> 
+            <ul><li><%=link_to "#{like.storextra.store.name}", storextra_path(like.storextra_id)%> </li> </ul>
+        <%end%>
+</h3>
 <div>
  <div class="card-body">
       <h2>Productos solicitados que no han sido entregados</h2>
