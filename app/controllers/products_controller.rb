@@ -5,6 +5,7 @@ class ProductsController < InheritedResources::Base
   # GET /products.json
   def index
     @products = Product.all
+    @products = Product.where(store_id: current_store.id) if store_signed_in?
     @storextra = Storextra.all 
   end
 
