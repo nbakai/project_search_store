@@ -1,5 +1,6 @@
 class CommentsController < InheritedResources::Base
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   def index
     @comments = Comment.all
     @storextra = Storextra.all 

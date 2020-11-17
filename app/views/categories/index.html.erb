@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
-<div>
-    <input type="text" id="q" placeholder="Busca tu tienda favorita">
-</div>
-
+<% if user_signed_in? %>
+  <div>
+      <input type="text" id="q" placeholder="Busca tu tienda favorita">
+  </div>
+<%end%>
 <table>
   <thead>
     <tr>

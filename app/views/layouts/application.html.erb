@@ -27,8 +27,10 @@
             <%= link_to 'Carrito de compras', cart_path%>
           <% elsif !store_signed_in? %>
            <%= link_to 'Crear cuenta', new_user_registration_path %> | 
-          <%= link_to 'Iniciar sesión', new_user_session_path%>
+          <%= link_to 'Iniciar sesión Usuarios', new_user_session_path%>
           <%= link_to 'Iniciar sesión para tiendas', new_store_session_path%>
+          <% elsif store_signed_in? %>
+            <%= link_to 'Cerrar sesión', destroy_store_session_path, method: :delete %>
           <% end %>
         </span>
       </div>
