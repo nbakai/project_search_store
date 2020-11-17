@@ -25,10 +25,10 @@ class CommentsController < InheritedResources::Base
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-   
+    @storextra = Storextra.find(params[:storextra_id])
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to root_path, notice: 'comment was successfully created.' }
+        format.html { redirect_to @storextra, notice: 'comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
