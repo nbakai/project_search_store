@@ -9,7 +9,7 @@
         <%@order.order_items.includes(:product).each do |item|%>
         <div class="row">
         <div class="col-xs-2 col-md-2">
-        <img class="img-resposive" src="http://placehold.it/120x80" alt="preview">
+        <%=image_tag(item.product.image, size: '70x50')%>
         </div>
         <div class="col-xs-4 col-md-6">
             <h4 class="product-name"><strong><%=item.product.name%></strong> </h4>
@@ -19,10 +19,12 @@
             <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
                 <h6><strong><%= item.price%><span class="text-muted">x</span><%= item.quantity%></strong> </h6>
             </div>
-            <div class="col-xs-2 col-md-2"></div>
+            <div class="col-xs-2 col-md-2"> <div><%= link_to 'Quitar', destroy_order_path(@order.id), method: :delete%> </div></div>
         </div>
+         
         </div>
         <hr>
+       
         <%end%>
     </div>
     <div class="car-footer">
