@@ -71,7 +71,7 @@ class CommentsController < InheritedResources::Base
       @comment = Comment.find(params[:id])
     end
     def comment_params
-      params.require(:comment).permit(:content, :user_id, :storextra_id, :rating)
+      params.permit(:content, :user_id, :storextra_id, :rating)
     end
 
 end
