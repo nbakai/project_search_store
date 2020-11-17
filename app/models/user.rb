@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :confirmable
   has_one_attached :avatar, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end

@@ -4,7 +4,14 @@
   <%= @storextra.store.name %>
   <%=image_tag @storextra.avatar, style: 'height:150px; width:150px;' if @storextra.avatar.attached?%>
 </p>
-
+<p><% pre_like = @storextra.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', storextra_like_path(@storextra, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', storextra_likes_path(@storextra), method: :post %>
+<% end %>
+</p>
+<p><%= @storextra.likes.count %> <%= (@storextra.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <p>
   <strong>Description:</strong>
   <%= @storextra.description %>
