@@ -1,7 +1,10 @@
 <tr>
-    <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached? %></td> 
-    <td><%= storextra.store.name %></td>
-    <% if user_signed_in?%>
-        <td><%= link_to 'Show', storextra %></td>
-    <%end%>
-</tr>    
+        <td><%= category.name %></td>
+         <% if user_signed_in?%>
+        <td><%= link_to 'Show', category %></td>
+        <%end%>
+         <% if admin_user_signed_in?%>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+</tr>
