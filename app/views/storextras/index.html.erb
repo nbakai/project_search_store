@@ -1,30 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Storextras</h1>
-<div>
+<%# <div>
     <input type="text" id="q" placeholder="Busca tu tienda favorita">
-</div>
+</div> %>
 
 <% @storextras.each do |storextra| %>
  
-<table>
+<table >
   <thead>
     <tr>
+      <th>Nombre de la tienda</th>
       <th>Foto</th>
-      <th>Description</th>
-      <th>Horario open</th>
-      <th>Horario close</th>
+      <th>Descripcion</th>
+      <th>Horario de apertura</th>
+      <th>Horario de cierre</th>
       <th>Link facebook</th>
       <th>Link instagram</th>
       <th>Link whatsapp</th>
       <th>Link web</th>
-      <th>Store</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody id="table">
+  <tbody >
       <tr>
+        <td><%= storextra.store.name %></td>
         <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached?%></td>
         <td><%= storextra.description %></td>
         <td><%= storextra.horario_open %></td>
@@ -33,7 +34,6 @@
         <td><%= storextra.link_instagram %></td>
         <td><%= storextra.link_whatsapp %></td>
         <td><%= storextra.link_web %></td>
-        <td><%= storextra.store.name %></td>
         <% if user_signed_in? || store_signed_in? %>
           <td><%= link_to 'Show', storextra %></td>
         <%end%>

@@ -8,8 +8,7 @@ class StorextrasController < ApplicationController
     @storextras = Storextra.all unless  store_signed_in?
     @storextras = Storextra.where(store_id: current_store.id) if store_signed_in? 
    
-    
-    @storextras = Storextra.where('description LIKE ?', "%#{params[:q]}%") if params[:q]
+    # @storextras = Storextra.where('description LIKE ?', "%#{params[:q]}%") if params[:q]
     #@products = Products.all.where(storextra_id: @storextra.id)
     
   end

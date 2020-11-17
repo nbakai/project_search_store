@@ -4,6 +4,7 @@
   <%= @storextra.store.name %>
   <%=image_tag @storextra.avatar, style: 'height:150px; width:150px;' if @storextra.avatar.attached?%>
 </p>
+
 <% if user_signed_in?%>
   <p><% pre_like = @storextra.likes.find { |like| like.user_id == current_user.id} %>
   <% if pre_like %>
@@ -18,6 +19,11 @@
   <strong>Description:</strong>
   <%= @storextra.description %>
 </p>
+<p><strong>Dirección:</strong>
+  <%= @storextra.store.address%> </p>
+
+<p><strong>Teléfono:</strong>
+  <%= @storextra.store.phone%> </p>
 <p>
   <strong>Calificación:</strong>
   <%rating_prom= 0%>

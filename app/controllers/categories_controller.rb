@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
-    @categories = Category.where('name LIKE ?', "%#{params[:q]}") if params[:q]
+    @categories = Category.where('name iLIKE ?', "%#{params[:q]}") if params[:q]
     @storextras = Storextra.all 
     # @storextras = Storextra.where('description iLIKE ?', "%#{params[:q]}") if params[:q]
     
