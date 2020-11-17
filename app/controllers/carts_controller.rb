@@ -9,8 +9,17 @@ class CartsController < ApplicationController
     def show
         @order = current_order
     end
-
-
+    def destroy
+        order = Order.find(params[:id])
+        order.destroy 
+        redirect_to cart_path, notice: 'Se ha quitado el producto del carrito'
+    end
+    def clean
+        order = Order.all
+        Order.destroy_all
+        redirect_to cart_path, notice: 'Se ha vaciado el carrito'
+    end
+    
 #     def pay_with_cash
 #         order = current_order 
 #         price = order.total 

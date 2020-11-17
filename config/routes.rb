@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   resource :cart, only: [:show, :update]
   resources :orders, only: :index
 
-  delete 'orders/clean', to: 'orders#clean', as: 'clean_orders'
-  delete 'order/:id', to: 'orders#destroy', as: 'destroy_order'
+  delete 'carts/clean', to: 'carts#clean', as: 'clean_carts'
+  delete 'cart/:id', to: 'carts#destroy', as: 'destroy_cart'
   
   post 'storextras/:id', to: 'comments#create', as:'comment_store'
   root to: 'categories#index'

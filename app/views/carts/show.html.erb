@@ -19,7 +19,7 @@
             <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
                 <h6><strong><%= item.price%><span class="text-muted">x</span><%= item.quantity%></strong> </h6>
             </div>
-            <div class="col-xs-2 col-md-2"> <div><%= link_to 'Quitar', destroy_order_path(@order.id), method: :delete%> </div></div>
+            <%# <div class="col-xs-2 col-md-2"> <div><%= link_to 'Quitar', destroy_cart_path(@order.id), method: :delete%> 
         </div>
          
         </div>
@@ -31,7 +31,7 @@
        <%#= link_to 'Pay', pay_with_paypal_cart_path, method: :post, class: 'btn btn-success pull-right'%>
        <div class="pull-right" style="margin: 5px">
         
-        <p><%= link_to 'Vaciar carrito', clean_orders_path, method: :delete %> </p>
+        <p><%= link_to 'Vaciar carrito', clean_carts_path, method: :delete %> </p>
        </div>
     </div>
     </div>
