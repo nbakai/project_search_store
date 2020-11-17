@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     @categories = Category.where('name LIKE ?', "%#{params[:q]}") if params[:q]
     @storextras = Storextra.all 
+    # @storextras = Storextra.where('description iLIKE ?', "%#{params[:q]}") if params[:q]
     
     
   end
