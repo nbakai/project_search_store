@@ -30,6 +30,7 @@
           <%= link_to 'Iniciar sesión Usuarios', new_user_session_path%>
           <%= link_to 'Iniciar sesión para tiendas', new_store_session_path%>
           <% elsif store_signed_in? %>
+           <%= link_to 'Editar perfil', edit_store_registration_path %>
             <%= link_to 'Cerrar sesión', destroy_store_session_path, method: :delete %>
           <% end %>
         </span>
@@ -40,6 +41,12 @@
         <h3 class= "text-bold">Bienvenido <%= current_user.name%>!</h3><br>
         <%=image_tag current_user.avatar, style: 'height:150px; width:150px;' if current_user.avatar.attached?%><br>
         <strong> <%= link_to 'Perfil', user_path(current_user) %></strong>
+      </section>
+        <hr>
+    <% elsif store_signed_in? %>
+     <h3 class= "text-bold">Bienvenida Tienda:<%= current_store.name%>!</h3><br>
+        <%=image_tag current_store.avatar, style: 'height:150px; width:150px;' if current_store.avatar.attached?%><br>
+        <strong> <%= link_to 'Mi tienda', store_path(current_store) %></strong>
       </section>
         <hr>
     <%end%>
