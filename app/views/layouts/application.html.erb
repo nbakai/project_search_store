@@ -39,14 +39,14 @@
     </nav>
     <% if user_signed_in? %>
       <section class="user">
-        <h3 class= "text-bold">Bienvenido <%= current_user.name%>!</h3><br>
+        <h3 class= "text-bold">Te damos la bienvenida: ¡<%= current_user.name%>!</h3><br>
         <%=image_tag current_user.avatar, style: 'height:150px; width:150px;' if current_user.avatar.attached?%><br>
         <strong> <%= link_to 'Perfil', user_path(current_user) %></strong>
       </section>
         <hr>
     <% elsif store_signed_in? %>
       <br>
-     <h3 class= "text-bold">Te damos la bienvenida a la página de tu tienda: ¡<%= current_store.name%>!</h3><br>
+     <h3 class= "text-bold">Te damos la bienvenida: ¡<%= current_store.name%>!</h3><br>
         <%=image_tag current_store.avatar, style: 'height:150px; width:150px;' if current_store.avatar.attached?%><br>
         <strong> <%= link_to 'Mi tienda', storextra_path(current_store) %></strong>
       </section>
