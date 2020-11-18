@@ -47,8 +47,7 @@
     <% elsif store_signed_in? %>
       <br>
      <h3 class= "text-bold">Te damos la bienvenida: ¡<%= current_store.name%>!</h3><br>
-        <%=image_tag current_store.avatar, style: 'height:150px; width:150px;' if current_store.avatar.attached?%><br>
-        <strong> <%= link_to 'Mi tienda', storextra_path(current_store) %></strong>
+        <strong> <%= link_to 'Mi tienda', storextra_path(current_store) %></strong> |  <strong> <%= link_to 'Mi Perfil', store_path(current_store) %></strong>
       </section>
         <hr>
     <%end%>
