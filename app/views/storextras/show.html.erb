@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Store:</strong>
-  <%= @storextra.store.name %>
+  <strong>Nombre de la tienda:
+  <%= @storextra.store.name %></strong>
   <%=image_tag @storextra.avatar, style: 'height:150px; width:150px;' if @storextra.avatar.attached?%>
 </p>
 
@@ -69,7 +69,6 @@
   <%= @storextra.link_web %>
 </p> <br>
 <% if store_signed_in? %>
-  <h3><%= link_to 'Todos los Productos', products_path %> </h3>
   <% if current_store.id == @storextra.store_id%>
    
     <%= form_with(model: @product, data: {confirm: 'enviar datos?'}, id: 'form') do |form| %>
@@ -127,8 +126,11 @@
                           <%= form_for :cart, url: cart_path, method: :put do |f|%>
                               <%= f.hidden_field :product_id, value: product.id%>
                               <%= f.hidden_field :quantity, value: 1%>
-                              <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm float-rigth'%>
+                              <%= f.submit "Agregar al carrito", class: 'btn btn-primary btn-sm float-rigth'%>
                           <%end%>
+                        <%elsif store_signed_in?%>
+                          <%= link_to 'Editar producto', edit_product_path(product) %> |
+                          <%= link_to 'Eliminar Producto', product, method: :delete, data: { confirm: 'Are you sure?' } %>
                         <%end%>
                     </div>
                     
@@ -179,14 +181,14 @@
   <p><%= comment.user.name %> </p>
   <p><% if user_signed_in? && comment.user_id == current_user.id%>
       <%= link_to ' Editar', edit_comment_path(comment) %>
-      <%= link_to ' Borrar', comment, method: :delete, data: { confirm: 'Estás seguro?' } %></p>  
+      <%= link_to ' Borrar Comentario', comment, method: :delete, data: { confirm: 'Estás seguro?' } %></p>  
     <%end%>
 <%end%>
 
 
 <% if store_signed_in? && @storextra.store_id == current_store.id%>
-  <%= link_to 'Edit', edit_storextra_path(@storextra) %> <br>
-  <%= link_to "Back", :back %> <br>
+  <%= link_to 'Editar datos de la Tienda', edit_storextra_path(@storextra) %> <br>
+   <%#= link_to ' Borrar', @storextra, method: :delete, data: { confirm: 'Estás seguro!!?' } %></p>
 <%end%>
 
  <%= link_to 'Inicio', root_path %>

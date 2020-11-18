@@ -59,7 +59,7 @@ class ProductsController < InheritedResources::Base
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'product was successfully destroyed.' }
+      format.html { redirect_to storextra_path(current_store), notice: 'product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

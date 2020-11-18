@@ -26,6 +26,7 @@ class StorextrasController < ApplicationController
 
   # GET /storextras/new
   def new
+    @store = Store.find_by(params[:id])
     @storextra = Storextra.new
   end
 
@@ -68,7 +69,7 @@ class StorextrasController < ApplicationController
   def destroy
     @storextra.destroy
     respond_to do |format|
-      format.html { redirect_to storextras_url, notice: 'Storextra was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Has eliminado los datos de tu tienda!' }
       format.json { head :no_content }
     end
   end

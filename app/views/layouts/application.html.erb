@@ -26,8 +26,9 @@
             <%= link_to 'Editar perfil', edit_user_registration_path %>
             <%= link_to 'Carrito de compras', cart_path%>
           <% elsif !store_signed_in? %>
-           <%= link_to 'Crear cuenta', new_user_registration_path %> | 
-          <%= link_to 'Iniciar sesión Usuarios', new_user_session_path%>
+           <%= link_to 'Crear cuenta para usuarios', new_user_registration_path %> | 
+           <%= link_to 'Crear cuenta para tiendas', new_store_registration_path %>
+          <%= link_to 'Iniciar sesión Usuarios', new_user_session_path%> |
           <%= link_to 'Iniciar sesión para tiendas', new_store_session_path%>
           <% elsif store_signed_in? %>
            <%= link_to 'Editar perfil', edit_store_registration_path %>
@@ -44,9 +45,10 @@
       </section>
         <hr>
     <% elsif store_signed_in? %>
-     <h3 class= "text-bold">Bienvenida Tienda:<%= current_store.name%>!</h3><br>
+      <br>
+     <h3 class= "text-bold">Te damos la bienvenida a la página de tu tienda: ¡<%= current_store.name%>!</h3><br>
         <%=image_tag current_store.avatar, style: 'height:150px; width:150px;' if current_store.avatar.attached?%><br>
-        <strong> <%= link_to 'Mi tienda', store_path(current_store) %></strong>
+        <strong> <%= link_to 'Mi tienda', storextra_path(current_store) %></strong>
       </section>
         <hr>
     <%end%>

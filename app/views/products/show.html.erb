@@ -26,5 +26,6 @@
   <%= @product.sku %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Editar', edit_product_path(@product) %> |
+<%= link_to 'Borrar', @product, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Volver a mi tienda', storextra_path(current_store) %>
