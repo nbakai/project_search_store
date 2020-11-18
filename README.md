@@ -7,3 +7,9 @@
 
 * Modelo del proyecto :
 ![Alt text](proyectobuscatiendas.jpg?raw=true "Modelo")
+
+
+* ActiveAdmin:
+    * https://busca-tiendas.herokuapp.com/admin/dashboard 
+        * Email: emailpararails202.0@gmail.com
+        * Password: p12345d 
