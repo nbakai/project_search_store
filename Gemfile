@@ -65,3 +65,4 @@ gem "devise", "~> 4.7"
 gem 'activeadmin'
 gem 'aws-sdk-s3'
 gem 'omniauth-facebook'
+gem 'ahoy_matey'

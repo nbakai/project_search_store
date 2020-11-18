@@ -5,6 +5,7 @@ class Users::SessionsController < Devise::SessionsController
   
   # GET /resource/sign_in
   # def new
+    
   #   super
   # end
 
@@ -12,12 +13,12 @@ class Users::SessionsController < Devise::SessionsController
   # def create
   #   super
   # end
-
+  
   # DELETE /resource/sign_out
   # def destroy
   #   super
   # end
-
+  
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
