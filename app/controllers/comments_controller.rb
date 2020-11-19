@@ -10,6 +10,7 @@ class CommentsController < InheritedResources::Base
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @comments = Comment.all
   end
 
   # GET /comments/new
@@ -25,10 +26,9 @@ class CommentsController < InheritedResources::Base
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    @storextra = Storextra.find(params[:storextra_id])
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @storextra, notice: 'comment was successfully created.' }
+        format.html { redirect_to storextra_path(@comment.storextra_id), notice: 'Comentario fue creado' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -40,10 +40,10 @@ class CommentsController < InheritedResources::Base
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-    
+   
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to root_path, notice: 'comment was successfully updated.' }
+        format.html { redirect_to storextra_path(@comment.storextra_id), notice: 'comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class CommentsController < InheritedResources::Base
    
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'comment was successfully destroyed.' }
+      format.html { redirect_to storextra_path(@comment.storextra_id), notice: 'comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,7 +71,7 @@ class CommentsController < InheritedResources::Base
       @comment = Comment.find(params[:id])
     end
     def comment_params
-      params.permit(:content, :user_id, :storextra_id, :rating)
+      params.require(:comment).permit(:content, :user_id, :storextra_id, :rating)
     end
 
 end

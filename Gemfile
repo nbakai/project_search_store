@@ -66,3 +66,6 @@ gem 'activeadmin'
 gem 'aws-sdk-s3'
 gem 'omniauth-facebook'
 gem 'ahoy_matey'
+gem "chartkick"
+
+gem 'groupdate'

@@ -18,6 +18,7 @@ class StorextrasController < ApplicationController
   def show
     @storextra = Storextra.find(params[:id]) if store_signed_in? 
     @product = Product.new
+    @comment = Comment.new
     respond_to do |format|
       format.html {}
       format.js { @products }
