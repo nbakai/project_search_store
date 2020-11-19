@@ -15,8 +15,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
    
     if @user.save
       # Deliver the signup email
-      UserNotifierMailer.send_signup_email(@user).deliver
       root_path
+      UserNotifierMailer.send_signup_email(@user).deliver
     else
       render :action => 'new'
     end
