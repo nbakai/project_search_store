@@ -5,6 +5,8 @@
       <h2><%= @store.name %> </h2>
       <%= image_tag @storextra.avatar, style: 'height:100px; width:100px;' if @storextra.avatar.attached?%>
     </section>
-  
+  <div class="justify-content">
+    <%= column_chart @chart_store, title: 'Productos', download: {background: 'white'}%>
+  </div> <br>
   <%= link_to 'Inicio', root_path %>
 </div>
