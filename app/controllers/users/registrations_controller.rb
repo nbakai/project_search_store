@@ -12,11 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    @user = User.new(user_params)
+   
     if @user.save
       # Deliver the signup email
       UserNotifierMailer.send_signup_email(@user).deliver
-      redirect_to root_path, notice: 'User created'
+      root_path
     else
       render :action => 'new'
     end
@@ -64,8 +64,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  # private 
+  # def user_params
+  #   params.require(:user).permit(:name, :avatar, :email, :password)
+  # end
 
-  # protected
+
+
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
