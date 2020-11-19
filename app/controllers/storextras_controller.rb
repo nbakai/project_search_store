@@ -7,7 +7,8 @@ class StorextrasController < ApplicationController
   def index
     @storextras = Storextra.all unless  store_signed_in?
     @storextras = Storextra.where(store_id: current_store.id) if store_signed_in? 
-   
+    @q = Storextra.ransack(params[:q]) 
+    @storextras = @q.result.includes(:store)
     # @storextras = Storextra.where('description LIKE ?', "%#{params[:q]}%") if params[:q]
     #@products = Products.all.where(storextra_id: @storextra.id)
     

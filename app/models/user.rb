@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :orders
 
+  validates :avatar, attached: true, content_type: [:png, :jpg, :jpeg]
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -17,5 +19,7 @@ class User < ApplicationRecord
       user.name = auth.info.name 
     end
   end
+
+
   
 end

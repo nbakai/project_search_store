@@ -4,7 +4,9 @@ class Product < ApplicationRecord
     has_many :order_items, dependent: :destroy
     has_many :orders, through: :order_items, dependent: :destroy
     has_many :users, through: :orders, dependent: :destroy
-    has_one_attached :image, dependent: :destroy
+    has_one_attached :image ,dependent: :destroy
 
+    validates :image, attached: true, content_type: [:png, :jpg, :jpeg]
 
+   
 end

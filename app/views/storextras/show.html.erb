@@ -40,13 +40,8 @@
 
 
 <p>
-  <strong>Horario open:</strong>
-  <%= @storextra.horario_open %>
-</p>
-
-<p>
-  <strong>Horario close:</strong>
-  <%= @storextra.horario_close %>
+  <strong>Horario de atención:</strong>
+  <%= @storextra.horario_open.strftime("%H:%M") %> a <%= @storextra.horario_close.strftime("%H:%M") %>
 </p>
 
 <p>
@@ -179,6 +174,7 @@
   </svg>
   <% end %></p>
   <p><%= comment.user.name %> </p>
+  <p><%= time_ago_in_words(comment.created_at) %> </p>
   <p><% if user_signed_in? && comment.user_id == current_user.id%>
       <%= link_to ' Editar', edit_comment_path(comment) %>
       <%= link_to ' Borrar Comentario', comment, method: :delete, data: { confirm: 'Estás seguro?' } %></p>  

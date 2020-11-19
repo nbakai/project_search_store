@@ -1,20 +1,13 @@
-<p id="notice"><%= notice %></p>
-<h1> Busca aquí tu tienda: </h1> <br>
-<% if user_signed_in? %>
- <div>
-  <%= search_form_for @q do |f| %>
-  <%= f.label 'Por nombre de la tienda: ' %>
-  <%= f.search_field :store_name_cont %>
-  <%= f.label 'Por su descripción:' %>
-  <%= f.search_field :description_cont %>
-    <%= f.submit%>
-<% end %>
-  </div>
-<%end%>
+<h1>Tiendas</h1>
+<%# <div>
+    <input type="text" id="q" placeholder="Busca tu tienda favorita">
+</div> %>
+ 
 
  
 <table class="table table-hover">
   <thead>
+  <%=@store.each do |store|%>
     <tr>
       <th>Nombre de la tienda</th>
       <th>Foto</th>
@@ -30,7 +23,7 @@
   </thead>
 
   <tbody class="table-active">
-  <% @storextras.each do |storextra| %>
+  <% store.storextras.each do |storextra| %>
       <tr>
         <td><%= storextra.store.name %></td>
         <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached?%></td>
@@ -54,9 +47,7 @@
       </tr>    
   </tbody>
 </table>
- 
+ <%end%>
 <br>
 
 <%= link_to 'Inicio', root_path %>
-
- 
