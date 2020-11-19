@@ -10,9 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    @user = User.new(user_params)
+    if @user.save
+      # Deliver the signup email
+      UserNotifierMailer.send_signup_email(@user).deliver
+      redirect_to(@user, :notice => 'User created')
+    else
+      render :action => 'new'
+    end
+  end
 
   # GET /resource/edit
   # def edit
