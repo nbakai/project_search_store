@@ -21,20 +21,20 @@ class CartsController < ApplicationController
         redirect_to cart_path, notice: 'Se ha vaciado el carrito'
     end
     
-#     def pay_with_cash
-#         order = current_order 
-#         price = order.total 
+    # def pay_with_cash
+    #     order = current_order 
+    #     price = order.total 
     
-#         payment_method = PaymentMethod.find_by(code: "PEC")
-#         Payment.create(
-#             order_id: order.id, 
-#             payment_method_id: payment_method.id,
-#             state: "processing",
-#             total: order.total,
-#             token: response.token 
-#         )
-#         redirect_to root_path(response.token)
-#     end
+    #     payment_method = PaymentMethod.find_by(code: "PEC")
+    #     Payment.create(
+    #         order_id: order.id, 
+    #         payment_method_id: payment_method.id,
+    #         state: "processing",
+    #         total: order.total,
+    #         token: response.token 
+    #     )
+    #     redirect_to root_path(response.token)
+    # end
 #     def process_cash_payment 
      
 #         if response.success?

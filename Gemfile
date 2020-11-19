@@ -69,3 +69,6 @@ gem 'ahoy_matey'
 gem "chartkick"
 
 gem 'groupdate'
+
+
+gem 'sendgrid-ruby'
