@@ -18,6 +18,12 @@ class OrdersController < ApplicationController
             redirect_to root_path, alert: 'No se ha podido añadir al carro'
         end  
     end
+    def save
+        @user = current_user 
+        @orders = Order.where(user_id: current_user.id, paid: false)
+        UserNotifierMailer.save_order_email(@user, @orders).deliver
+        redirect_to orders_path, notice: 'Se ha enviado un mail con tu orden'
+    end 
 
     def destroy
         @order = Order.find(params[:id])

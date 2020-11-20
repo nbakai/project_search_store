@@ -14,5 +14,9 @@ class UserNotifierMailer < ApplicationMailer
       @order = order
       mail(to: user.email, subject: 'Su orden ha sido creada')
     end
-    
+    def save_order_email(user, orders)
+      @user = user 
+      @orders = orders
+      mail(to: user.email, subject: 'Su orden ha sido creada')
+    end
 end

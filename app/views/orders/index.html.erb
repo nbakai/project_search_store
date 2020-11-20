@@ -28,5 +28,6 @@
     </table>
     <p>Total: <%= number_to_currency(total, unit: "CLP$", precision: 0)%> </p> 
     <p><%= link_to 'Vaciar carrito', clean_orders_path, method: :delete %> </p>
-    <p><%= link_to 'Pagar', pre_pay_billings_path%> </p>
+    <p><%= link_to 'Enviar copia de mi orden por email', save_orders_path %> </p>
+    <p><%= link_to 'Pagar vía PayPal', pre_pay_billings_path%> </p>
 <%end%>

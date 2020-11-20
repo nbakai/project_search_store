@@ -32,7 +32,8 @@ Rails.application.routes.draw do
 
   delete 'orders/clean', to: 'orders#clean', as: 'clean_orders'
   delete 'order/:id', to: 'orders#destroy', as: 'destroy_order'
-  
+  get 'orders/save', to: 'orders#save', as: 'save_orders'
+
   resources :billings, only: [] do
     collection do
       get 'pre-pay'

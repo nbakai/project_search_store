@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> Saludos! <%= @user.name %></h1> <br>
+   
+    <p> Has pedido un email con copia de tu orden de compra en nuestra página a continuación puedes ver los detalles: </p>
+  <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total del producto</th>
+        </thead>
+        <tbody>
+            <% total = 0%>
+                <% @orders.each do |order|%>
+                <% total += (order.product.price * order.quantity)%>
+                <tr>
+                    <td><%= order.product.name %> </td>
+                    <td><%= number_to_currency(order.product.price, unit: "USD$", precision: 0)%> </td>
+                    <td>|  <%= order.quantity %> |</td>
+                    <td><%= number_to_currency((order.product.price*order.quantity), unit: 'USD$', precision: 0) %> </td>
+                </tr>
+                  <% end %>
+        </tbody>
+    </table>
+  </body>
+</html>

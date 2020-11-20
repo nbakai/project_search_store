@@ -74,3 +74,5 @@ gem 'sendgrid-ruby'
 
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'paypal-sdk-rest'
+
+gem 'rollbar'
