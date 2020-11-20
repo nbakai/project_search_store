@@ -5,5 +5,5 @@ class Store < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :storextras, dependent: :destroy
 
-  has_many :orders, dependent: :destroy
+  #has_many :orders, dependent: :destroy
 end

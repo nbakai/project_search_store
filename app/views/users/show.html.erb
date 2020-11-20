@@ -19,7 +19,7 @@
  <div class="card-body">
       <h2>Productos solicitados que no han sido entregados</h2>
         <%# @order.order_items.includes(:product).each do |item|%>
-        <% @order.includes(:product).each do |item|%>
+        <% @user.orders.each do |item|%>
         <div class="row">
         <div class="col-xs-2 col-md-2">
         <div class="card-img-top img-resposive"> <%=image_tag item.product.image, style: 'height:150px; width:150px;' %> </div>
@@ -30,7 +30,7 @@
         </div>
         <div class="col-xs-6 col-md-4 row">
             <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
-                <h6><strong><%= item.price%><span class="text-muted">x</span><%= item.quantity%></strong> </h6>
+                <h6><strong><%= item.product.price%><span class="text-muted">x</span><%= item.quantity%></strong> </h6>
             </div>
             <div class="col-xs-2 col-md-2"></div>
         </div>

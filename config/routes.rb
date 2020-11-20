@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   end
   resources :billings
   resources :categories
-  resources :products
+  
+  resources :products do
+    resources :orders, only: :create 
+  end
   resources :users 
   resources :stores
   resources :orders, only: :index

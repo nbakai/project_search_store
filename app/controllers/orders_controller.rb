@@ -5,11 +5,11 @@ class OrdersController < ApplicationController
     end
     
     def create
-        product = Product.find(params[:product_id])
-        order = Order.find_or_create_by(user_id: current_user.id,product_id: product.id, paid: false)
-        order.quantity += 1 
+        @product = Product.find(params[:product_id])
+        @order = Order.find_or_create_by(user_id: current_user.id, product_id: @product.id, paid: false)
+        @order.quantity += 1 
 
-        if order.save 
+        if @order.save! 
             redirect_to root_path, notice: 'Se ha añadido el producto al carro'
         else 
             redirect_to root_path, alert: 'No se ha podido añadir al carro'
@@ -17,13 +17,13 @@ class OrdersController < ApplicationController
     end
 
     def destroy
-        order = Order.find(params[:id])
-        order.destroy 
+        @order = Order.find(params[:id])
+        @order.destroy 
         redirect_to orders_path, notice: 'Se ha quitado el producto del carrito'
     end
     def clean
-        order = Order.where(paid: false)
-        order.destroy_all
+        @order = Order.where(paid: false)
+        @order.destroy_all
         redirect_to orders_path, notice: 'Se ha vaciado el carrito'
     end
 end

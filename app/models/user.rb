@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_one_attached :avatar, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :orders
+  has_many :orders, dependent: :destroy 
+  has_many :products, through: :orders, dependent: :destroy
+  has_many :billings, dependent: :destroy 
 
   validates :avatar, content_type: [:png, :jpg, :jpeg]
 

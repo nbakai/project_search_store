@@ -2,10 +2,11 @@ class UsersController < ApplicationController
   def index
     @user  = User.find(params[:id])
   end
-  
+
   def show 
     @user  = User.find(params[:id])
     @order = Order.all 
+    @product = Product.all
     if @order.find_by(user_id: current_user)
       @chart_user = Order.where(user_id: current_user).group_by_day(:created_at).count
       @chart2_user = Comment.where(user_id: current_user).group_by_hour(:created_at).count
