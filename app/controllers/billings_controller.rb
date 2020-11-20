@@ -1,4 +1,4 @@
-class BillingsController < InheritedResources::Base
+class BillingsController < ApplicationController
     def pre_pay
         @orders = current_user.orders.where(paid: false)
         @user = current_user
@@ -63,8 +63,8 @@ class BillingsController < InheritedResources::Base
                 payment_method: 'PayPal',
                 currency: 'USD'
             )
-            orders = current_user.orders.where(paid: false)
-            orders.update_all(paid: true, billing_id: billing.id)
+            @orders = current_user.orders.where(paid: false)
+            @orders.update_all(paid: true, billing_id: billing.id)
             redirect_to root_path, notice: 'El pago se ha realizado exitosamente :D '
         else  
             redirect_to root_path, notice: 'No se ha podido realizar el pago con PayPal'

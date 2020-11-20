@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :storextras do
     resources :likes
   end
-  resources :billings
+ 
   resources :categories
   
   resources :products do

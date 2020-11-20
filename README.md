@@ -10,5 +10,5 @@
 
 * ActiveAdmin:
     * https://busca-tiendas.herokuapp.com/admin/dashboard 
-        * Email: emailpararails202.0@gmail.com
+        * Email: emailpararails2020@gmail.com
         * Password: p12345d 
