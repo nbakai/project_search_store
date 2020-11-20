@@ -23,7 +23,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def passthru
   #   super
   # end
-
+  def redirect_callbacks
+    super 
+    redirect_to root_path
+  end
   # GET|POST /users/auth/twitter/callback
   # def failure
   #   super

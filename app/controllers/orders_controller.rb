@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
     end
     
     def create
+        
         @product = Product.find(params[:product_id])
         @order = Order.find_or_create_by(user_id: current_user.id, product_id: @product.id, paid: false)
         @order.quantity += 1 
