@@ -14,7 +14,8 @@ test: &default
   # # # With Certificate
   # # cert_path: "config/cert_key.pem"
   # sandbox_email_address: Platform.sdk.seller@gmail.com
-
+  ssl_options:
+    ca_file: null
   # # IP Address
   # ip_address: 127.0.0.1
   # # HTTP Proxy
