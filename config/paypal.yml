@@ -5,7 +5,7 @@ test: &default
   client_secret: <%= ENV['PAYPAL_SECRET_ID'] %>
 
   # Mode can be 'live' or 'sandbox'
-  mode: live
+  mode: sandbox
   # # Credentials for Classic APIs
   # app_id: APP-80W284485P519543T
   # username: jb-us-seller_api1.paypal.com
