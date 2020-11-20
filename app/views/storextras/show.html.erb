@@ -116,13 +116,9 @@
         <div class='card-body'>
                 <div class='card-text'>
                     <div>
-                        <%= number_to_currency product.price %>
+                        <%= number_to_currency(product.price, unit: 'CLP$', precision: 0) %> 
                         <% if !store_signed_in?%>
-                          <%= form_for :cart, url: cart_path, method: :put do |f|%>
-                              <%= f.hidden_field :product_id, value: product.id%>
-                              <%= f.hidden_field :quantity, value: 1%>
-                              <%= f.submit "Agregar al carrito", class: 'btn btn-primary btn-sm float-rigth'%>
-                          <%end%>
+                          <%= link_to 'Agregar al carro', product_orders_path(product.id), method: :post %> 
                         <%elsif store_signed_in?%>
                           <%= link_to 'Editar producto', edit_product_path(product) %> |
                           <%= link_to 'Eliminar Producto', product, method: :delete, data: { confirm: 'Are you sure?' } %>

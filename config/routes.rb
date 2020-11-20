@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   get 'home/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -19,15 +20,22 @@ Rails.application.routes.draw do
   resources :storextras do
     resources :likes
   end
+  resources :billings
   resources :categories
   resources :products
   resources :users 
   resources :stores
-  resource :cart, only: [:show, :update]
   resources :orders, only: :index
 
-  delete 'carts/clean', to: 'carts#clean', as: 'clean_carts'
-  delete 'cart/:id', to: 'carts#destroy', as: 'destroy_cart'
+  delete 'orders/clean', to: 'orders#clean', as: 'clean_orders'
+  delete 'order/:id', to: 'orders#destroy', as: 'destroy_order'
+  
+  resources :billings, only: [] do
+    collection do
+      get 'pre-pay'
+      get 'execute'
+    end 
+  end 
   
   post 'storextras/:id', to: 'comments#create', as:'comment_store'
   root to: 'categories#index'

@@ -6,6 +6,6 @@ class Storextra < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  validates :avatar, attached: true, content_type: [:png, :jpg, :jpeg]
+  validates :avatar, content_type: [:png, :jpg, :jpeg]
   
 end

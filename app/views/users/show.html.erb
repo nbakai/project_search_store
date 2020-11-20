@@ -3,13 +3,13 @@
 
     <section >
       <h1>Perfil: </h1>
-      <h2><%= @user.name %> <%=image_tag @user.avatar, style: 'height:100px; width:100px;' if @user.avatar.attached?%></h2>
-    
+      <h2><%= @user.name %> <%#=image_tag @user.avatar, style: 'height:100px; width:100px;' if @user.avatar.attached?%></h2>
+      <%= avatar_for(current_user) %>
     </section>
   
   <%= link_to 'Inicio', root_path %>
 </div>
-<h3><%= link_to 'Carrito de compras', cart_path%> </h3>
+<h3><%= link_to 'Carrito de compras', orders_path%> </h3>
 
 <h3><b>Tiendas favoritas</b> <% @user.likes.each do |like| %> 
             <ul><li><%=link_to "#{like.storextra.store.name}", storextra_path(like.storextra_id)%> </li> </ul>
@@ -18,7 +18,8 @@
 <div>
  <div class="card-body">
       <h2>Productos solicitados que no han sido entregados</h2>
-        <% @order.order_items.includes(:product).each do |item|%>
+        <%# @order.order_items.includes(:product).each do |item|%>
+        <% @order.includes(:product).each do |item|%>
         <div class="row">
         <div class="col-xs-2 col-md-2">
         <div class="card-img-top img-resposive"> <%=image_tag item.product.image, style: 'height:150px; width:150px;' %> </div>
