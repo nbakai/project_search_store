@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
         @order.quantity += 1 
 
         if @order.save! 
+            @user = current_user 
+            UserNotifierMailer.order_confirmation(@user, @order).deliver
             redirect_to root_path, notice: 'Se ha añadido el producto al carro'
         else 
             redirect_to root_path, alert: 'No se ha podido añadir al carro'
