@@ -12,7 +12,7 @@ class BillingsController < ApplicationController
             item[:name] = order.product.name 
             item[:sku] = order.product.id.to_s
             item[:price] = order.product.price
-            item[:currency] = 'CLP'
+            item[:currency] = 'USD'
             item[:quantity] = order.quantity
             item  
         end
@@ -37,7 +37,7 @@ class BillingsController < ApplicationController
                         },
                         amount: {
                             total: total.to_s, 
-                            currency: 'CLP'
+                            currency: 'USD'
                         },
                         description: 'Compra desde mi tienda ocso en Rails'
                     }
@@ -61,7 +61,7 @@ class BillingsController < ApplicationController
                 code: paypal_payment.id,
                 amount: amount,
                 payment_method: 'PayPal',
-                currency: 'CLP'
+                currency: 'USD'
             )
             @orders = current_user.orders.where(paid: false)
             @orders.update_all(paid: true, billing_id: billing.id)
