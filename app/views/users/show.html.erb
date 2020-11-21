@@ -11,7 +11,11 @@
 </div>
 <h3><%= link_to 'Carrito de compras', orders_path%> </h3>
 
-<h3><b>Tiendas favoritas</b> <% @user.likes.each do |like| %> 
+<h3><b>Tiendas favoritas</b> 
+        <% if  @user.likes.count < 1 %>
+        <p> No has agregado tiendas a tus favoritos</p>
+        <%end%>
+        <% @user.likes.each do |like| %> 
             <ul><li><%=link_to "#{like.storextra.store.name}", storextra_path(like.storextra_id)%> </li> </ul>
         <%end%>
 </h3>

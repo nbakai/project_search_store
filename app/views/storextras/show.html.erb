@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<% if store_signed_in? && @storextra.store_id == current_store.id%>
+  <%= link_to 'Editar datos de la Tienda', edit_storextra_path(@storextra) %> <br>
+   <%#= link_to ' Borrar', @storextra, method: :delete, data: { confirm: 'Estás seguro!!?' } %></p>
+<%end%>
 
 <div class="card text-white bg-dark mb-3 ml-5 text-center" style="max-width: 90vw;">
   <div class="card-header "><h3> <%= @storextra.store.name %></h3></div>
@@ -22,72 +26,28 @@
     <%=rating_prom%> &#11088;</p>
     <h5 class="card-title">Horario de atención</h5>
     <p class="card-text"> <%= @storextra.horario_open.strftime("%H:%M") %> a <%= @storextra.horario_close.strftime("%H:%M") %></p>
+    <h5 class="card-title">Link página web</h5>
+    <p class="card-text"> <%=link_to "#{@storextra.link_web}", "http://#{@storextra.link_web}", :target => "_blank"%>
+    <h5 class="card-title">Link facebook</h5>
+    <p class="card-text"> <%=link_to "#{@storextra.link_facebook}", "http://#{@storextra.link_facebook}", :target => "_blank"%>
+    <h5 class="card-title">Link instagram</h5>
+    <p class="card-text"> <%=link_to "#{@storextra.link_instagram}", "http://#{@storextra.link_instagram}", :target => "_blank"%>
+    <h5 class="card-title">Link whatsapp</h5>
+    <p class="card-text"> <%=link_to "#{@storextra.link_whatsapp}", "http://#{@storextra.link_whatsapp}", :target => "_blank"%>
   </div>
 </div>
-<p>
-  <strong>Nombre de la tienda:
-  <%= @storextra.store.name %></strong>
-  <%=image_tag @storextra.avatar, style: 'height:150px; width:150px;' if @storextra.avatar.attached?%>
-</p>
+
 
 <% if user_signed_in?%>
-  <p><% pre_like = @storextra.likes.find { |like| like.user_id == current_user.id} %>
+  <h4 class="text-center"><% pre_like = @storextra.likes.find { |like| like.user_id == current_user.id} %>
   <% if pre_like %>
-    <%= link_to raw('&#128128;'), storextra_like_path(@storextra, pre_like), method: :delete %>
+    <%= link_to raw('Quitar de favoritos &#x1F495; '), storextra_like_path(@storextra, pre_like), method: :delete %> | 
   <% else %>
-    <%= link_to raw('&#x1F495;'), storextra_likes_path(@storextra), method: :post %>
+    <%= link_to raw('&#128128; Agregar a favoritos '), storextra_likes_path(@storextra), method: :post %> | 
   <% end %>
-  
 <%end%>
-<%= @storextra.likes.count %> <%= (@storextra.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-<p>
-  <strong>Description:</strong>
-  <%= @storextra.description %>
-</p>
-<p><strong>Dirección:</strong>
-  <%= @storextra.store.address%> </p>
-
-<p><strong>Teléfono:</strong>
-  <%= @storextra.store.phone%> </p>
-<p>
-  <strong>Calificación:</strong>
-  <%rating_prom= 0%>
-  <%contador= 0%>
-  <% @storextra.comments.each do |comment| %>
-    <% rating_prom += comment.rating.to_i%>
-    <%contador += 1%>
-  <%end%>
-  <% if rating_prom != 0%>
-    <%rating_prom = rating_prom / contador%>
-  <%end%>
-  <%=rating_prom%> &#11088;
-</p>
-
-
-<p>
-  <strong>Horario de atención:</strong>
-  <%= @storextra.horario_open.strftime("%H:%M") %> a <%= @storextra.horario_close.strftime("%H:%M") %>
-</p>
-
-<p>
-  <strong>Link facebook:</strong>
-  <%= @storextra.link_facebook %>
-</p>
-
-<p>
-  <strong>Link instagram:</strong>
-  <%= @storextra.link_instagram %>
-</p>
-
-<p>
-  <strong>Link whatsapp:</strong>
-  <%= @storextra.link_whatsapp %>
-</p>
-
-<p>
-  <strong>Link web:</strong>
-  <%= @storextra.link_web %>
-</p> <br>
+<%= @storextra.likes.count %> <%= (@storextra.likes.count) == 1 ? ' Persona ha agregado esta tienda a sus favoritos' : ' Personas han agregado esta tienda a sus favoritos'%></h4>
+<br>
 <% if store_signed_in? %>
   <% if current_store.id == @storextra.store_id%>
    
@@ -143,7 +103,7 @@
                     <div>
                         <%= number_to_currency(product.price, unit: 'CLP$', precision: 0) %> |
                         Stock: <%= product.stock %> |
-                         Fecha de agregado: <%= product.created_at %>
+                         Producto agregado el: <%= product.created_at %>
                         <% if !store_signed_in?%>
                           
                           <%= button_to "Agregar al carro", product_orders_path(product.id), class: "btn btn-success", method: :post %>
@@ -211,13 +171,5 @@
 </div>
   <%end%>
 
-
-
-
-
-<% if store_signed_in? && @storextra.store_id == current_store.id%>
-  <%= link_to 'Editar datos de la Tienda', edit_storextra_path(@storextra) %> <br>
-   <%#= link_to ' Borrar', @storextra, method: :delete, data: { confirm: 'Estás seguro!!?' } %></p>
-<%end%>
 
  <%= link_to 'Inicio', root_path %>
