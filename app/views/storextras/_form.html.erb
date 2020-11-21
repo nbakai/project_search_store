@@ -1,65 +1,68 @@
-<%= form_with(model: storextra, local: true) do |form| %>
-  <% if storextra.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(storextra.errors.count, "error") %> prohibited this storextra from being saved:</h2>
+<div class="form-group text-md-center">
+  <%= form_with(model: storextra, local: true) do |form| %>
+    <% if storextra.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(storextra.errors.count, "error") %> prohibited this storextra from being saved:</h2>
 
-      <ul>
-      <% storextra.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% storextra.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :horario_open %>
+      <%= form.time_select :horario_open %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :horario_close %>
+      <%= form.time_select :horario_close %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :link_facebook %>
+      <%= form.text_field :link_facebook %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :link_instagram %>
+      <%= form.text_field :link_instagram %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :link_whatsapp %>
+      <%= form.text_field :link_whatsapp %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :link_web %>
+      <%= form.text_field :link_web %>
+    </div>
+    <div class="field form-group">
+      <%= form.hidden_field :store_id, value:current_store.id %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :category_id %> 
+      <%= form.select :category_id, options_from_collection_for_select( Category.all, :id, :name), prompt: 'Elige una categoría'%>
+    </div>
+    <div class="field form-group">
+      <label class="btn btn-success"> Sube la foto de tu tienda
+       <span style="display:none;"> <%= form.file_field :avatar %> </span>
+      </label>
+    </div>
+
+
+    <div class="actions form-group">
+      <button type="submit" class="btn btn-success">Enviar</button>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :horario_open %>
-    <%= form.time_select :horario_open %>
-  </div>
-
-  <div class="field">
-    <%= form.label :horario_close %>
-    <%= form.time_select :horario_close %>
-  </div>
-
-  <div class="field">
-    <%= form.label :link_facebook %>
-    <%= form.text_field :link_facebook %>
-  </div>
-
-  <div class="field">
-    <%= form.label :link_instagram %>
-    <%= form.text_field :link_instagram %>
-  </div>
-
-  <div class="field">
-    <%= form.label :link_whatsapp %>
-    <%= form.text_field :link_whatsapp %>
-  </div>
-
-  <div class="field">
-    <%= form.label :link_web %>
-    <%= form.text_field :link_web %>
-  </div>
-  <div class="field">
-    <%= form.hidden_field :store_id, value:current_store.id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category_id %> 
-    <%= form.select :category_id, options_from_collection_for_select( Category.all, :id, :name), prompt: 'Elige una categoría'%>
-  </div>
-  <div class="field">
-    <%= form.label :avatar, 'Sube la foto de perfil de tu tienda' %>
-    <%= form.file_field :avatar %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

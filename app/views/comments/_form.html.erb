@@ -1,34 +1,36 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<div class="form-group text-md-center">
+  <%= form_with(model: comment, local: true) do |form| %>
+    <% if comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field form-group">
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :rating, "Deja tu calificación aquí (1-5)" %>
+      <%= form.number_field :rating, min: 0, max: 5 %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.hidden_field :user_id, value:current_user.id %>
+    </div>
+    <div class="field form-group">
+      <%= form.hidden_field :storextra_id %>
+    </div>
+
+    <div class="actions form-group">
+      <button type="submit" class="btn btn-success">Comentar</button>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating, "Deja tu calificación aquí (1-5)" %>
-    <%= form.number_field :rating, min: 0, max: 5 %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :user_id, value:current_user.id %>
-  </div>
-  <div class="field">
-    <%= form.hidden_field :storextra_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

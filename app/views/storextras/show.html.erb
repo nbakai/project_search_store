@@ -50,47 +50,50 @@
 <br>
 <% if store_signed_in? %>
   <% if current_store.id == @storextra.store_id%>
-   
+  <div class="form-group text-md-center"> 
+    <h3>Agrega un nuevo producto: </h3>
     <%= form_with(model: @product, data: {confirm: 'enviar datos?'}, id: 'form') do |form| %>
-      <div class="field">
-        <%= form.label :name %>
+      <div class="field form-group">
+        <%= form.label :name, 'Nombre del producto: '%> <br>
         <%= form.text_field :name %>
       </div>
 
-      <div class="field">
-        <%= form.label :description %>
+      <div class="field form-group">
+        <%= form.label :description, 'Descripción: ' %> <br>
         <%= form.text_area :description %>
       </div>
 
-      <div class="field">
-        <%= form.label :stock %>
+      <div class="field form-group">
+        <%= form.label :stock, 'Stock: ' %>
         <%= form.number_field :stock, min: 1 %>
       </div>
 
-      <div class="field">
-        <%= form.label :price, 'Precio' %>
+      <div class="field form-group">
+        <%= form.label :price, 'Precio: ' %>
         <%= form.number_field :price, min: 0 %>
       </div>
 
-      <div class="field">
-        <%= form.label :sku %>
+      <div class="field form-group">
+        <%= form.label :sku, 'SKU: ' %>
         <%= form.text_field :sku %>
       </div>
-      <div class="field">
-        <%= form.label :image, 'Sube la foto del producto aquí' %>
-        <%= form.file_field :image %>
+      <div class="field form-group">
+        <label class="btn btn-success"> Agrega la foto del producto aquí
+        <span style="display:none;"> <%= form.file_field :image %> </span>
+        </label>
       </div>
-      <div class="field">
+      <div class="field form-group">
         <%= form.hidden_field :store_id, value: current_store.id %>
       </div>
-      <div class="field">
+      <div class="field form-group">
         <%= form.hidden_field :storextra_id, value: @storextra.id %>
       </div>
-      <div class="actions">
-        <%= form.submit %>
+      <div class="actions form-group">
+        <button type="submit" class="btn btn-success">Enviar</button>
       </div>
     <% end %>
   <%end%>
+  </div>
 <%end%>
 <h2 class='text-center'>Productos</h2>
 <div class="card-deck">

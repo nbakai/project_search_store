@@ -1,51 +1,54 @@
-<%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="form-group text-md-center">
+  <%= form_with(model: product, local: true) do |form| %>
+    <% if product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :stock %>
+      <%= form.number_field :stock, min: 1 %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :price, 'Precio' %>
+      <%= form.number_field :price, min: 0 %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :sku %>
+      <%= form.text_field :sku %>
+    </div>
+    <div class="field form-group">
+      <label class="btn btn-success"> Sube la foto del producto aquí
+       <span style="display:none;"> <%= form.file_field :image %> </span>
+      </label>
+    </div>
+    <div class="field form-group">
+      <%= form.hidden_field :store, value: current_store.id %>
+    </div>
+    <div class="field form-group">
+      <%= form.hidden_field :storextra_id %>
+    </div>
+    <div class="actions form-group">
+       <button type="submit" class="btn btn-success">Enviar</button>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :stock %>
-    <%= form.number_field :stock, min: 1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price, 'Precio' %>
-    <%= form.number_field :price, min: 0 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sku %>
-    <%= form.text_field :sku %>
-  </div>
-  <div class="field">
-    <%= form.label :image, 'Sube la foto del producto aquí' %>
-    <%= form.file_field :image %>
-  </div>
-  <div class="field">
-    <%= form.hidden_field :store, value: current_store.id %>
-  </div>
-  <div class="field">
-    <%= form.hidden_field :storextra_id %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

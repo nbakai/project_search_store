@@ -27,7 +27,7 @@
             <%= link_to 'Carrito de compras', orders_path%>
           <% elsif !store_signed_in? %>
            <%= link_to 'Crear cuenta para usuarios', new_user_registration_path %> | 
-           <%= link_to 'Crear cuenta para tiendas', new_store_registration_path %>
+           <%= link_to 'Crear cuenta para tiendas', new_store_registration_path %> |
           <%= link_to 'Iniciar sesión Usuarios', new_user_session_path%> |
           <%= link_to 'Iniciar sesión para tiendas', new_store_session_path%>
           <% elsif store_signed_in? %>

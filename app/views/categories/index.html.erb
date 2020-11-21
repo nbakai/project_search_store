@@ -3,14 +3,12 @@
     <thead>
       <tr>
         <th>Categoría</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
-
     <tbody id="table-category">
       <% @categories.each do |category| %>
-        <tr class="table-active">
-          <td><%= category.name %></td>
+        <tr >
+          <td class="table-active"><%= category.name %></td>
           <% if user_signed_in?%>
           <td><%= link_to 'Show', category %></td>
           <%end%>
