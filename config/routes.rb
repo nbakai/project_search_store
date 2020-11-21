@@ -22,9 +22,10 @@ Rails.application.routes.draw do
   end
  
   resources :categories
-  
+  resources :storextras
   resources :products do
-    resources :orders, only: :create 
+      resources :orders, only: :create do
+    end
   end
   resources :users 
   resources :stores
