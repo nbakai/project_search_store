@@ -16,8 +16,7 @@ class BillingsController < ApplicationController
             item[:quantity] = order.quantity
             item  
         end
-        # UserNotifierMailer.send_order_email(@user, @orders).deliver 
-        # root_path
+        
         payment = PayPal::SDK::REST::Payment.new({
             intent: 'sale',
             payer: {
