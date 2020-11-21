@@ -1,40 +1,40 @@
-<h2>Sign up</h2>
+<h2>Registro de cuenta para tiendas</h2>
+<div class="form-group text-md-center">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "stores/shared/error_messages", resource: resource %>
+    <div class="field form-group">
+      <%= f.label :name, "Nombre de la tienda" %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :address, "Dirección" %><br />
+      <%= f.text_field :address  %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :phone, "Teléfono" %><br />
+      <%= f.text_field :phone  %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :email, "E-mail"  %><br />
+      <%= f.email_field :email  %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "stores/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :name, "Nombre de la tienda" %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :address, "Dirección" %><br />
-    <%= f.text_field :address  %>
-  </div>
-  <div class="field">
-    <%= f.label :phone, "Teléfono" %><br />
-    <%= f.text_field :phone  %>
-  </div>
-  <div class="field">
-    <%= f.label :email, "E-mail"  %><br />
-    <%= f.email_field :email  %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
+    <div class="actions form-group">
+      <button type="submit" class="btn btn-success">Enviar</button>
+    </div>
+  <% end %>
+</div>
 <%= render "stores/shared/links" %>
