@@ -1,36 +1,37 @@
-<h2>Sign up</h2>
+<h2>Registro de usuario</h2>
+<div class="form-group text-md-center">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+    <div class="field form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :name, 'Nombre' %><br />
+      <%= f.text_field :name, autocomplete: "Nombre" %>
+    </div>
+    <div class="field form-group">
+      <label class="btn btn-success"> Sube tu foto de perfil aquí
+       <span style="display:none;"> <%= f.file_field :avatar %> </span>
+      </label>
+    </div>
+    <div class="field form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> caracteres mínimo )</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-    <%= f.label :name, 'Nombre' %><br />
-    <%= f.text_field :name, autocomplete: "Nombre" %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar, 'Sube tu foto de perfil' %>
-    <%= f.file_field :avatar %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
+    <div class="actions form-group">
+      <button type="submit" class="btn btn-success">Enviar</button>
+    </div>
+  <% end %>
+</div>
 <%= render "users/shared/links" %>
