@@ -17,10 +17,8 @@
   <thead>
     <tr>
       <th>Nombre de la tienda</th>
-      <th>Foto</th>
-      <th>Descripcion</th>
-      <th>Horario de apertura</th>
-      <th>Horario de cierre</th>
+      <th>Descripción</th>
+      <th>Horario de atención</th>
       <th>Link facebook</th>
       <th>Link instagram</th>
       <th>Link whatsapp</th>
@@ -33,20 +31,19 @@
   <% @storextras.each do |storextra| %>
       <tr>
         <td><%= storextra.store.name %></td>
-        <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached?%></td>
+        <%#=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached?%>
         <td><%= storextra.description %></td>
-        <td><%= storextra.horario_open %></td>
-        <td><%= storextra.horario_close %></td>
+        <td><%= storextra.horario_open.strftime("%H:%M") %> a <%= storextra.horario_close.strftime("%H:%M") %></td>
         <td><%= storextra.link_facebook %></td>
         <td><%= storextra.link_instagram %></td>
         <td><%= storextra.link_whatsapp %></td>
         <td><%= storextra.link_web %></td>
-        <% if user_signed_in? || store_signed_in? %>
+        <% if user_signed_in? %>
           <td><%= link_to 'Show', storextra %></td>
         <%end%>
         <% if store_signed_in?%>
-       
           <% if current_store.id == storextra.store_id%>
+            <td><%= link_to 'Show', storextra %></td>
             <td><%= link_to 'Edit', edit_storextra_path(storextra) %></td>
           <%end%>
         <%end%>
