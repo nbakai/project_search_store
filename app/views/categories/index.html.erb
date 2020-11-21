@@ -1,68 +1,60 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Categorías</h1>
-<% if user_signed_in? %>
-  <div>
-      <input type="text" id="q" placeholder="Busca tu tienda favorita">
-  
-  </div>
- 
-<%end%>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody id="table-category">
-    <% @categories.each do |category| %>
-      <tr class="table-active">
-        <td><%= category.name %></td>
-         <% if user_signed_in?%>
-        <td><%= link_to 'Show', category %></td>
-        <%end%>
-         <% if admin_user_signed_in?%>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- <% if !user_signed_in? %>
-  <% if  !store_signed_in? %>
-    <div class="text-justify">
-      <h3 > Hay una gran cantidad de tiendas en la ciudad que uno solo conoce por datos y no hay un lugar objetivo dónde buscar y encontrar todas o una gran cantidad en un solo lugar. Por lo que se creo este buscador de tiendas, en el que si usted se registra puede encontrar la tienda que anda buscando.</h3>
-    </div>
- <%end%>
-<%end%>
-<br>
-<table class="table table-hover" >
-  <thead>
-    <tr class="table-active">
-      <th>Nombre de la tienda</th>
-      <th>Descripción</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody >
-  <% @storextras.each do |storextra| %>
+ <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached? %></td> 
-        <td><%= storextra.store.name %></td>
-        <td><%= storextra.description %> </td>
-        <% if user_signed_in?%>
-          <td><%= link_to 'Show', storextra %></td>
-        <%end%>
-      </tr>    
+        <th>Categoría</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody id="table-category">
+      <% @categories.each do |category| %>
+        <tr class="table-active">
+          <td><%= category.name %></td>
+          <% if user_signed_in?%>
+          <td><%= link_to 'Show', category %></td>
+          <%end%>
+          <% if admin_user_signed_in?%>
+          <td><%= link_to 'Edit', edit_category_path(category) %></td>
+          <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+        </tr>
+      <% end %>
+    </tbody>
+ </table>
+  
+  <% if !user_signed_in? %>
+    <% if  !store_signed_in? %>
+      <div class="text-justify">
+        <h3 > Hay una gran cantidad de tiendas en la ciudad que uno solo conoce por datos y no hay un lugar objetivo dónde buscar y encontrar todas o una gran cantidad en un solo lugar. Por lo que se creo este buscador de tiendas, en el que si usted se registra puede encontrar la tienda que anda buscando.</h3>
+      </div>
     <%end%>
-  </tbody>
-</table>
-<br>
-<h3><%= link_to 'Todas las tiendas', storextras_path %></h3> <br>
-<% if admin_user_signed_in?%>
-  <%= link_to 'New Category', new_category_path %>
-<%end%>
+  <%end%>
+  <br>
+  <table class="table table-hover" >
+    <thead>
+      <tr class="table-active">
+        <th>Nombre de la tienda</th>
+        <th>Descripción</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody >
+    <% @storextras.each do |storextra| %>
+        <tr>
+          <td><%=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached? %></td> 
+          <td><%= storextra.store.name %></td>
+          <td><%= storextra.description %> </td>
+          <% if user_signed_in?%>
+            <td><%= link_to 'Show', storextra %></td>
+          <%end%>
+        </tr>    
+      <%end%>
+    </tbody>
+  </table>
+  <br>
+  <h3><%= link_to 'Todas las tiendas', storextras_path %></h3> <br>
+  <% if admin_user_signed_in?%>
+    <%= link_to 'New Category', new_category_path %>
+  <%end%>
+</section>
