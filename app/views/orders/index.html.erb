@@ -5,6 +5,7 @@
 <% else %>
     <table class="table table-hover">
         <thead>
+            <th>Código de orden</th>
             <th>Imagen</th>
             <th>Nombre</th>
             <th>Precio</th>
@@ -16,10 +17,11 @@
             <% @orders.each do |order|%>
                 <% total += (order.product.price * order.quantity)%>
                 <tr class="table-active">
+                    <td><%= order.number %> </td>
                     <td><%=image_tag(order.product.image, size: '70x50')%> </td>
                     <td><%= order.product.name %> </td>
                     <td><%= number_to_currency(order.product.price, unit: "CLP$", precision: 0)%> </td>
-                    <td>|  <%= order.quantity %></td>
+                    <td>  <%= order.quantity %></td>
                     <td><%= number_to_currency((order.product.price*order.quantity), unit: 'CLP$', precision: 0) %> </td>
                     <td><%= link_to 'Quitar', destroy_order_path(order.id), method: :delete%> </td>
                 </tr>
