@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :rating, "Deja tu calificación aquí (1-5)" %>
-    <%= form.number_field :rating %>
+    <%= form.number_field :rating, min: 0, max: 5 %>
   </div>
 
   <div class="field">

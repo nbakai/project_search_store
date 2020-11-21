@@ -41,12 +41,12 @@
 <% if user_signed_in?%>
   <h4 class="text-center"><% pre_like = @storextra.likes.find { |like| like.user_id == current_user.id} %>
   <% if pre_like %>
-    <%= link_to raw('Quitar de favoritos &#x1F495; '), storextra_like_path(@storextra, pre_like), method: :delete %> | 
+    <%= link_to raw('Quitar de favoritos &#x1F495; '), storextra_like_path(@storextra, pre_like), method: :delete %>  
   <% else %>
-    <%= link_to raw('&#128128; Agregar a favoritos '), storextra_likes_path(@storextra), method: :post %> | 
+    <%= link_to raw('&#128128; Agregar a favoritos '), storextra_likes_path(@storextra), method: :post %> </h4>
   <% end %>
 <%end%>
-<%= @storextra.likes.count %> <%= (@storextra.likes.count) == 1 ? ' Persona ha agregado esta tienda a sus favoritos' : ' Personas han agregado esta tienda a sus favoritos'%></h4>
+<p class="text-center"> <%= @storextra.likes.count %> <%= (@storextra.likes.count) == 1 ? ' Persona ha agregado esta tienda a sus favoritos' : ' Personas han agregado esta tienda a sus favoritos'%></p>
 <br>
 <% if store_signed_in? %>
   <% if current_store.id == @storextra.store_id%>
@@ -64,12 +64,12 @@
 
       <div class="field">
         <%= form.label :stock %>
-        <%= form.number_field :stock %>
+        <%= form.number_field :stock, min: 1 %>
       </div>
 
       <div class="field">
-        <%= form.label :price %>
-        <%= form.number_field :price %>
+        <%= form.label :price, 'Precio' %>
+        <%= form.number_field :price, min: 0 %>
       </div>
 
       <div class="field">
@@ -101,7 +101,7 @@
         <div class='card-body'>
                 <div class='card-text'>
                     <div>
-                        <%= number_to_currency(product.price, unit: 'CLP$', precision: 0) %> |
+                        Precio: <%= product.price %> USD |
                         Stock: <%= product.stock %> |
                          Producto agregado el: <%= product.created_at %>
                         <% if !store_signed_in?%>
@@ -133,8 +133,8 @@
       <%= form.text_area :content %>
     </div>
     <div class="field form-group text-md-center">
-      <%= form.label :rating, "Deja tu calificación aquí (0-5)" %> <br>
-      <%= form.number_field :rating %>
+      <%= form.label :rating,  "Deja tu calificación aquí (0-5)" %> <br>
+      <%= form.number_field :rating, min: 0, max: 5 %>
     </div>
 
     <div class="field form-group text-md-center">

@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :stock %>
-    <%= form.number_field :stock %>
+    <%= form.number_field :stock, min: 1 %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.label :price, 'Precio' %>
+    <%= form.number_field :price, min: 0 %>
   </div>
 
   <div class="field">
