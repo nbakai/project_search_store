@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
         end
         nil
     end
+    after_action :track_action
+    # track events with ahoy_matey gem.
+    def track_action
+        ahoy.track "Viewed #{controller_name}##{action_name}", request.filtered_parameters
+    end
 end

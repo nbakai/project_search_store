@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :products, through: :orders, dependent: :destroy
   has_many :billings, dependent: :destroy 
 
+  has_many :visits, class_name: "Ahoy::Visit"
+  has_many :events, class_name: "Ahoy::Event"
+  
   validates :avatar, content_type: [:png, :jpg, :jpeg]
 
   def self.from_omniauth(auth)

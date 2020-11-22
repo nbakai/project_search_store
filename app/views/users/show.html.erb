@@ -10,15 +10,16 @@
   <%= link_to 'Inicio', root_path %>
 </div>
 <h3><%= link_to 'Carrito de compras', orders_path%> </h3>
-
-<h3><b>Tiendas favoritas</b> 
-        <% if  @user.likes.count < 1 %>
-        <p> No has agregado tiendas a tus favoritos</p>
-        <%end%>
-        <% @user.likes.each do |like| %> 
-            <ul><li><%=link_to "#{like.storextra.store.name}", storextra_path(like.storextra_id)%> </li> </ul>
-        <%end%>
-</h3>
+<div class="col-sm-8">
+  <h3><b>Tiendas favoritas</b> 
+          <% if  @user.likes.count < 1 %>
+          <p> No has agregado tiendas a tus favoritos</p>
+          <%end%>
+          <% @user.likes.each do |like| %> 
+              <ul><li><%=link_to "#{like.storextra.store.name}", storextra_path(like.storextra_id)%> </li> </ul>
+          <%end%>
+  </h3>
+</div>
 <div>
  <div class="card-body">
       <h2>Productos solicitados que no han sido entregados</h2>
@@ -42,11 +43,17 @@
         <%end%>
      
   </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= column_chart @chart_user, title: 'Ordenes de compra realizadas', download: {background: 'white'}%>
+    </div>
+    <div class="col-sm-4">
+      <%= line_chart @chart2_user, title: 'Comentarios realizados', download: {background: 'white'}%>
+    </div>
 
-  <div class="justify-content">
-    <%= column_chart @chart_user, title: 'Ordenes de compra realizadas', download: {background: 'white'}%>
-  </div>
-  <div class="justify-content">
-    <%= line_chart @chart2_user, title: 'Comentarios realizados', download: {background: 'white'}%>
+  
+      <%#= column_chart @chart_visits , title: 'Visitas diarias', download: {background: 'white'} %>
+      <%#= line_chart @chart_visits, title: 'Visitas' %>
+    
   </div>
 </div>
