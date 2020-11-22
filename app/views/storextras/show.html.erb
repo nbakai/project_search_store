@@ -21,9 +21,9 @@
       <%contador += 1%>
     <%end%>
     <% if rating_prom != 0%>
-      <%rating_prom = rating_prom / contador%>
+      <%@storextra.rating= rating_prom / contador%>
     <%end%>
-    <%=rating_prom%> &#11088;</p>
+    <%=@storextra.rating%> &#11088;</p>
     <h5 class="card-title">Horario de atención</h5>
     <p class="card-text"> <%= @storextra.horario_open.strftime("%H:%M") %> a <%= @storextra.horario_close.strftime("%H:%M") %></p>
     <h5 class="card-title">Link página web</h5>
