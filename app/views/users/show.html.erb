@@ -20,40 +20,42 @@
           <%end%>
   </h3>
 </div>
-<% if @user.id == current_user.id%>
-<div>
- <div class="card-body">
-      <h2>Productos solicitados que no han sido entregados</h2>
-        <% @user.orders.each do |item|%>
-        <div class="row">
-        <div class="col-xs-2 col-md-2">
-        <div class="card-img-top img-resposive"> <%=image_tag item.product.image, style: 'height:150px; width:150px;' %> </div>
-        </div>
-        <div class="col-xs-4 col-md-6">
-            <h4 class="product-name"><strong><%=item.product.name%></strong> </h4>
-            <h4><small><%= item.product.description%></small> </h4>
-        </div>
-        <div class="col-xs-6 col-md-4 row">
-            <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
-                <h6><strong><%= item.product.price%><span class="text-muted">x</span><%= item.quantity%></strong> </h6>
-            </div>
-            <div class="col-xs-2 col-md-2"></div>
-        </div>
-        </div>
-        <hr>
-        <%end%>
-     
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <%= column_chart @chart_user, title: 'Ordenes de compra realizadas', download: {background: 'white'}%>
+<% if !store_signed_in?%>
+  <% if @user.id == current_user.id  %>
+  <div>
+  <div class="card-body">
+        <h2>Productos solicitados que no han sido entregados</h2>
+          <% @user.orders.each do |item|%>
+          <div class="row">
+          <div class="col-xs-2 col-md-2">
+          <div class="card-img-top img-resposive"> <%=image_tag item.product.image, style: 'height:150px; width:150px;' %> </div>
+          </div>
+          <div class="col-xs-4 col-md-6">
+              <h4 class="product-name"><strong><%=item.product.name%></strong> </h4>
+              <h4><small><%= item.product.description%></small> </h4>
+          </div>
+          <div class="col-xs-6 col-md-4 row">
+              <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
+                  <h6><strong><%= item.product.price%><span class="text-muted">x</span><%= item.quantity%></strong> </h6>
+              </div>
+              <div class="col-xs-2 col-md-2"></div>
+          </div>
+          </div>
+          <hr>
+          <%end%>
+      
     </div>
-    <div class="col-sm-4">
-      <%= line_chart @chart2_user, title: 'Comentarios realizados', download: {background: 'white'}%>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= line_chart @chart_user, title: 'Ordenes de compra realizadas', download: {background: 'white'}%>
+      </div>
+      <div class="col-sm-6">
+        <%= column_chart  @comments.where(user_id: @user.id).group_by_day(:created_at).count, title: 'Comentarios realizados', download: {background: 'white'}%>
+      </div>
+        <%#= column_chart @chart_visits , title: 'Visitas diarias', download: {background: 'white'} %>
+        <%#= line_chart @chart_visits, title: 'Visitas' %>
+      
     </div>
-      <%#= column_chart @chart_visits , title: 'Visitas diarias', download: {background: 'white'} %>
-      <%#= line_chart @chart_visits, title: 'Visitas' %>
-    
   </div>
-</div>
+  <%end%>
 <%end%>
