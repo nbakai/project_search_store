@@ -20,7 +20,7 @@ class StorextrasController < ApplicationController
   # GET /storextras/1.json
   def show
     @storextra = Storextra.find(params[:id]) if store_signed_in? 
-    @comment = Comment.new
+    @comment = Comment.new(rating: 0)
     @product = Product.new
     #@user = User.all
     #@comments = Comment.page(params[:page])
