@@ -20,6 +20,7 @@
           <%end%>
   </h3>
 </div>
+<% if @user.id == current_user.id%>
 <div>
  <div class="card-body">
       <h2>Productos solicitados que no han sido entregados</h2>
@@ -50,10 +51,9 @@
     <div class="col-sm-4">
       <%= line_chart @chart2_user, title: 'Comentarios realizados', download: {background: 'white'}%>
     </div>
-
-  
       <%#= column_chart @chart_visits , title: 'Visitas diarias', download: {background: 'white'} %>
       <%#= line_chart @chart_visits, title: 'Visitas' %>
     
   </div>
 </div>
+<%end%>
