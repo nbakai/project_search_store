@@ -7,13 +7,11 @@ class UserNotifierMailer < ApplicationMailer
       mail( :to => @user.email,
       :subject => 'Gracias por registrarte en nuestra aplicación! (:' )
     end
-
-  
-    def order_confirmation(user, order)
-      @user = user
-      @order = order
-      mail(to: user.email, subject: 'Su orden ha sido creada')
-    end
+    # def order_confirmation(user, order)
+    #   @user = user
+    #   @order = order
+    #   mail(to: user.email, subject: 'Su orden ha sido creada')
+    # end
     def save_order_email(user, orders)
       @user = user 
       @orders = orders

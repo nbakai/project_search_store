@@ -2,7 +2,7 @@ class BillingsController < ApplicationController
     def pre_pay
         @orders = current_user.orders.where(paid: false)
         @user = current_user
-        
+        #@store = Product.find_by(@store: store_id)
         total = 0
         @orders.each do |order|
             total += (order.product.price * order.quantity)
@@ -23,10 +23,10 @@ class BillingsController < ApplicationController
                 payment_method: 'Paypal'
             },
             redirect_urls: {
-                # return_url: "http://localhost:3000/billings/execute",
-                # cancel_url: "http://localhost:3000/" 
-                return_url: 'https://busca-tiendas.herokuapp.com/execute', 
-                cancel_url: 'https://busca-tiendas.herokuapp.com/'
+                return_url: "http://localhost:3000/billings/execute",
+                cancel_url: "http://localhost:3000/" 
+                # return_url: 'https://busca-tiendas.herokuapp.com/execute', 
+                # cancel_url: 'https://busca-tiendas.herokuapp.com/'
             },
             
                 transactions: [
@@ -38,7 +38,7 @@ class BillingsController < ApplicationController
                             total: total.to_s, 
                             currency: 'USD'
                         },
-                        description: 'Compra desde mi tienda ocso en Rails'
+                        description: "Compra desde mi tienda "
                     }
                 ]
             

@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
         if @order.save! 
             @user = current_user 
-            UserNotifierMailer.order_confirmation(@user, @order).deliver
+            # UserNotifierMailer.order_confirmation(@user, @order).deliver
             redirect_to root_path, notice: 'Se ha añadido el producto al carro'
         else 
             redirect_to root_path, alert: 'No se ha podido añadir al carro'
