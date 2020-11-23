@@ -11,19 +11,17 @@ class StorextrasController < ApplicationController
     @storextras = @q.result.includes(:store)
     # @storextras = Storextra.where('description LIKE ?', "%#{params[:q]}%") if params[:q]
     #@products = Products.all.where(storextra_id: @storextra.id)
-    
+  
   end
 
   # GET /storextras/1
   # GET /storextras/1.json
   def show
     @storextra = Storextra.find(params[:id]) if store_signed_in? 
-    @product = Product.new
     @comment = Comment.new
-    respond_to do |format|
-      format.html {}
-      format.js { @products }
-    end
+    @product = Product.new
+    #@comments = Comment.where(storextra_id: @storextra.id).page(params[:page]).per(5).order("created_at DESC")
+    #@comments = @storextra.comments.page(params[:page]).order("created_at DESC")
   end
 
   # GET /storextras/new

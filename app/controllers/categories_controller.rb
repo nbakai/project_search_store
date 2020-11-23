@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @categories = Category.where('name iLIKE ?', "%#{params[:q]}") if params[:q]
-    @storextras = Storextra.all 
+    @storextras = Storextra.order("rating ASC").page(params[:page])
     # @storextras = Storextra.where('description iLIKE ?', "%#{params[:q]}") if params[:q]
    
   end

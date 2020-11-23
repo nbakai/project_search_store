@@ -68,7 +68,7 @@ gem 'aws-sdk-s3'
 gem 'omniauth-facebook'
 gem 'ahoy_matey'
 gem "chartkick"
-
+gem 'kaminari'
 gem 'groupdate'
 gem 'sendgrid-ruby'
 
