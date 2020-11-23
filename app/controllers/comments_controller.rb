@@ -20,6 +20,7 @@ class CommentsController < InheritedResources::Base
 
   # GET /comments/1/edit
   def edit
+    
   end
 
   # POST /comments

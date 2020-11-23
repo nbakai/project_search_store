@@ -20,11 +20,11 @@ class StorextrasController < ApplicationController
   # GET /storextras/1.json
   def show
     @storextra = Storextra.find(params[:id]) if store_signed_in? 
-    @comments = Comment.page(params[:page])
     @comment = Comment.new
     @product = Product.new
-    #@comments = Comment.order("created_at DESC").page(params[:page])
-    #@comments = Comment.where(storextra_id: @storextra.id).page(params[:page])
+    #@user = User.all
+    #@comments = Comment.page(params[:page])
+    #@comments = Comment.where(storextra_id: @storextra.id, user_id: @user).order("created_at ASC").page(params[:page])
   end
 
   # GET /storextras/new
