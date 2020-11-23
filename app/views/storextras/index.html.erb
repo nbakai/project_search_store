@@ -17,6 +17,7 @@
   <thead>
     <tr>
       <th>Nombre de la tienda</th>
+      <th>Calificación</th>
       <th>Descripción</th>
       <th>Horario de atención</th>
       <th>Link facebook</th>
@@ -31,6 +32,7 @@
   <% @storextras.each do |storextra| %>
       <tr>
         <td><%= storextra.store.name %></td>
+         <td><%= storextra.rating %></td>
         <%#=image_tag storextra.avatar, style: 'height:150px; width:150px;' if storextra.avatar.attached?%>
         <td><%= storextra.description %></td>
         <td><%= storextra.horario_open.strftime("%H:%M") %> a <%= storextra.horario_close.strftime("%H:%M") %></td>
@@ -56,4 +58,8 @@
 
 <%= link_to 'Inicio', root_path %>
 
- 
+ <div class="row">
+  <div class="col-md-8 offset-md-2">
+    <%= paginate @storextras %>
+  </div>
+</div>

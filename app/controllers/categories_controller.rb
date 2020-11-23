@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    
   end
 
   # GET /categories/new

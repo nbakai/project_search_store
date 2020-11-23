@@ -5,10 +5,12 @@ class StorextrasController < ApplicationController
   # GET /storextras
   # GET /storextras.json
   def index
-    @storextras = Storextra.all unless  store_signed_in?
+  
+    @storextras = Storextra.order("rating ASC").page(params[:page]) unless  store_signed_in?
     @storextras = Storextra.where(store_id: current_store.id) if store_signed_in? 
     @q = Storextra.ransack(params[:q]) 
-    @storextras = @q.result.includes(:store)
+    @storextras = @q.result.includes(:store).page(params[:page])
+
     # @storextras = Storextra.where('description LIKE ?', "%#{params[:q]}%") if params[:q]
     #@products = Products.all.where(storextra_id: @storextra.id)
   
@@ -18,10 +20,11 @@ class StorextrasController < ApplicationController
   # GET /storextras/1.json
   def show
     @storextra = Storextra.find(params[:id]) if store_signed_in? 
+    @comments = Comment.page(params[:page])
     @comment = Comment.new
     @product = Product.new
-    #@comments = Comment.where(storextra_id: @storextra.id).page(params[:page]).per(5).order("created_at DESC")
-    #@comments = @storextra.comments.page(params[:page]).order("created_at DESC")
+    #@comments = Comment.order("created_at DESC").page(params[:page])
+    #@comments = Comment.where(storextra_id: @storextra.id).page(params[:page])
   end
 
   # GET /storextras/new

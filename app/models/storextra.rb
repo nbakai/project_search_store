@@ -7,7 +7,7 @@ class Storextra < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :avatar, content_type: [:png, :jpg, :jpeg]
-  
+  default_scope {order("rating DESC")}
   def rating_prom (storextra)
     @storextra = storextra
     comments = Comment.all
@@ -19,6 +19,7 @@ class Storextra < ApplicationRecord
     end 
     if rating_prom != 0
       @storextra.rating = rating_prom / contador
+      @storextra.save!
     end 
   end
  
