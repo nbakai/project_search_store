@@ -23,12 +23,16 @@
   
   <% if !user_signed_in? %>
     <% if  !store_signed_in? %>
-      <div class="card text-white bg-success mb-3 mx-5 px-5 text-justify" style="max-width: 80vw;">
+      <div class="card text-white bg-success mb-3 mx-5 px-5 text-center">
         <div class="card-header "></div>
         <div class="card-body">
-        <h3 > Este es el lugar para encontrar la tienda que buscas o si tienes una tienda dejar que los clientes te encuentren</h3>
+          <h3 > Este es el lugar para encontrar la tienda que buscas o si tienes una tienda dejar que los clientes te encuentren</h3>
         </div>
       </div>
+      <div class="btn-group btn-group-lg mx-5 my-3 ">
+        <%= button_to 'Crear una cuenta de usuario', new_user_registration_path, class: "btn btn-success ml-5 mr-5" %>  <%= button_to 'Crear una cuenta para tiendas', new_store_registration_path, class: "btn btn-success ml-5" %> 
+      </div>
+        
     <%end%>
   <%end%>
   <br>
