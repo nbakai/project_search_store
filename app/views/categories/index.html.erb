@@ -51,6 +51,8 @@
       <div class="card-header "><h3> <%= storextra.store.name %></h3></div>
       <div class="card-body">
         <%=image_tag storextra.avatar, style: 'height:300px; width:300px;', class:"card-img-top" if storextra.avatar.attached?%>
+      </div>
+       <div class="card-footer">
         <%storextra.rating_prom(storextra)%> 
         <%= storextra.rating %> &#11088;
       </div>
