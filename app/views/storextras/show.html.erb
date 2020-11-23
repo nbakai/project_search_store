@@ -158,6 +158,7 @@
   <% end %></h5>
     <p class="card-text"><%= comment.content %></p>
     <p class="card-footer"><%= time_ago_in_words(comment.created_at) %></p>
+    <p class="card-footer"><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
     <p class="card-footer"><% if user_signed_in? && comment.user_id == current_user.id%>
       <%= link_to ' Editar', edit_comment_path(comment) %>
       <%= link_to ' Borrar Comentario', comment, method: :delete, data: { confirm: 'Estás seguro?' } %></p>  

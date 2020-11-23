@@ -4,16 +4,16 @@
     <section >
       <h1>Perfil: </h1>
       <h2><%= @user.name %> <%#=image_tag @user.avatar, style: 'height:100px; width:100px;' if @user.avatar.attached?%></h2>
-      <%= avatar_for(current_user) %>
+      <%= avatar_for(@user) %>
     </section>
   
   <%= link_to 'Inicio', root_path %>
 </div>
-<h3><%= link_to 'Carrito de compras', orders_path%> </h3>
+
 <div class="col-sm-8">
   <h3><b>Tiendas favoritas</b> 
           <% if  @user.likes.count < 1 %>
-          <p> No has agregado tiendas a tus favoritos</p>
+          <p> No se han agregado tiendas a favoritos</p>
           <%end%>
           <% @user.likes.each do |like| %> 
               <ul><li><%=link_to "#{like.storextra.store.name}", storextra_path(like.storextra_id)%> </li> </ul>
