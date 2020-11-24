@@ -31,7 +31,7 @@
     </div>
     <% if f.object.encrypted_password.present? %>
     <div class="field form-group ">
-      <%= f.label :current_password %> <i>(Necesitamos tu contraseña actual para realizar los cambios)</i><br />
+      <%= f.label :current_password %> <i>(Necesitamos tu contraseña actual para realizar los cambios de contraseña)</i><br />
       <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control col-md-4"  %>
     </div>
     <%end%>
