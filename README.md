@@ -7,7 +7,7 @@
     * Link dominio:
         * http://www.buscatutienda2020.tk/
 * Modelo del proyecto :
-![Alt text](proyectobuscatiendas.jpg?raw=true "Modelo")
+![Alt text](proyectobuscafisico3.jpg?raw=true "Modelo")
 
 
 * ActiveAdmin:

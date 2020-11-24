@@ -8,10 +8,7 @@ class UsersController < ApplicationController
     @order = Order.all 
     @product = Product.all
     @comments = Comment.all
-    # if @order.find_by(user_id: current_user)
-    #   @chart_user = Order.where(user_id: current_user).group_by_day(:created_at).count
-    #   @chart2_user = Comment.where(user_id: current_user).group_by_hour(:created_at).count
-    # end
+  
     if @order.find_by(user_id: @user.id)
       @chart_user = Order.where(user_id: @user.id).group_by_day(:created_at).count
       #@chart2_user = Comment.where(user_id: @user.id, id: @comment.id).group_by_hour( :created_at)

@@ -14,11 +14,15 @@
  *= 
  *= require_self
  */
-
+ @import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
  
+ *{
+    margin: 0
+ }
  body{
-    background: rgb(218,209,238);
-    background: linear-gradient(6deg, rgba(218,209,238,1) 0%, rgba(255,225,204,1) 46%, rgba(204,246,196,1) 72%);
+   font-family: 'McLaren', cursive;
+   background: rgb(218,209,238);
+   background: linear-gradient(6deg, rgba(218,209,238,1) 0%, rgba(255,225,204,1) 46%, rgba(204,246,196,1) 72%);
  }
  .footer{
     clear:both;
