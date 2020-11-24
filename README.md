@@ -5,7 +5,7 @@
     * Link a Heroku : 
         * https://busca-tiendas.herokuapp.com/
     * Link dominio:
-        * http://www.buscatutienda2020.tk/
+        * http://www.buscatutienda2020.tk
 * Modelo del proyecto :
 ![Alt text](proyectobuscafisico3.jpg?raw=true "Modelo")
 

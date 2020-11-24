@@ -64,7 +64,7 @@
     </div>
   <%end%>
   <% if admin_user_signed_in? || user_signed_in? || store_signed_in?%>
-  <h3><%= link_to 'Todas las tiendas', storextras_path %></h3> <br>
+  <h3 class="text-center"><%= link_to 'Entra aquí para buscar más Tiendas', storextras_path %></h3> <br>
   <%end%>
   <% if admin_user_signed_in?%>
     <%= link_to 'New Category', new_category_path %>
