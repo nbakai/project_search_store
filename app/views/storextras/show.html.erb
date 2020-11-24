@@ -43,7 +43,7 @@
 <% if store_signed_in? %>
   <% if current_store.id == @storextra.store_id%>
       <h3 class="text-center">Agrega un nuevo producto: </h3>
-    <div class="form-group text-sm-center formproduct"> 
+    <div class="form-group text-sm-center "> 
       <%= form_with(model: @product, data: {confirm: 'enviar datos?'}, id: 'form') do |form| %>
         <div class="field form-group ">
           <%= form.label :name, 'Nombre del producto: '%> <br>
@@ -125,7 +125,7 @@
 
     <div class="field form-group text-md-center">
       <%= form.label :content, "Deja tu comentario aquí!" %> <br>
-      <%= form.text_area :content %>
+      <%= form.text_area :content, class:"form-control col-md-4", :required => true %>
     </div>
     <div class="field form-group text-md-center">
       <%= form.label :rating,  "Deja tu calificación aquí (0-5)" %> <br>

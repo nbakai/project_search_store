@@ -5,28 +5,27 @@
 
     <div class="field form-group">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control col-md-4", :required => true  %>
     </div>
     <div class="field form-group">
       <%= f.label :name, 'Nombre' %><br />
-      <%= f.text_field :name, autocomplete: "Nombre" %>
+      <%= f.text_field :name, autocomplete: "Nombre", class:"form-control col-md-4", :required => true  %>
     </div>
     <div class="field form-group">
-      <label class="btn btn-success"> Sube tu foto de perfil aquí
-       <span style="display:none;"> <%= f.file_field :avatar %> </span>
-      </label>
+      <%= f.label :avatar, 'Sube tu foto de perfil aquí' %> <br>
+      <%= f.file_field :avatar, class:"form-control col-md-4", :required => true %> 
     </div>
     <div class="field form-group">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> caracteres mínimo )</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control col-md-4", :required => true %>
     </div>
 
     <div class="field form-group">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control col-md-4", :required => true %>
     </div>
 
     <div class="actions form-group">

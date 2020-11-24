@@ -13,15 +13,15 @@
     <% end %>
   <div class="field form-group">
       <%= f.label :name, "Nombre de la tienda" %><br />
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class:"form-control col-md-4", :required => true  %>
     </div>
     <div class="field form-group">
       <%= f.label :address, "Dirección" %><br />
-      <%= f.text_field :address  %>
+      <%= f.text_field :address, class:"form-control col-md-4", :required => true   %>
     </div>
     <div class="field form-group">
       <%= f.label :phone, "Teléfono" %><br />
-      <%= f.text_field :phone  %>
+      <%= f.text_field :phone, class:"form-control col-md-4", :required => true   %>
     </div>
     <div class="field form-group">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -39,7 +39,7 @@
 
     <div class="field form-group">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control col-md-4", :required => true  %>
     </div>
 
     <div class="actions form-group">

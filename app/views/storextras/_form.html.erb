@@ -14,17 +14,17 @@
 
     <div class="field form-group">
       <%= form.label :description %>
-      <%= form.text_area :description %>
+      <%= form.text_area :description, class:"form-control col-md-4", :required => true %>
     </div>
 
     <div class="field form-group">
       <%= form.label :horario_open %>
-      <%= form.time_select :horario_open %>
+      <%= form.time_select :horario_open, class:"form-control col-md-4", :required => true %>
     </div>
 
     <div class="field form-group">
       <%= form.label :horario_close %>
-      <%= form.time_select :horario_close %>
+      <%= form.time_select :horario_close, class:"form-control col-md-4", :required => true %>
     </div>
 
     <div class="field form-group">
@@ -52,12 +52,11 @@
 
     <div class="field form-group">
       <%= form.label :category_id %> 
-      <%= form.select :category_id, options_from_collection_for_select( Category.all, :id, :name), prompt: 'Elige una categoría'%>
+      <%= form.select :category_id, options_from_collection_for_select( Category.all, :id, :name), prompt: 'Elige una categoría', class:" col-md-4" %>
     </div>
     <div class="field form-group">
-      <label class="btn btn-success"> Sube la foto de tu tienda
-       <span style="display:none;"> <%= form.file_field :avatar %> </span>
-      </label>
+      <%= form.label :avatar, 'Sube la foto de tu tienda aquí' %> <br>
+      <%= form.file_field :avatar, class:"form-control col-md-4" %> 
     </div>
 
 

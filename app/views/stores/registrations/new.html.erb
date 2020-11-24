@@ -4,19 +4,19 @@
     <%= render "stores/shared/error_messages", resource: resource %>
     <div class="field form-group">
       <%= f.label :name, "Nombre de la tienda" %><br />
-      <%= f.text_field :name, autofocus: true %>
+      <%= f.text_field :name, autofocus: true, class:"form-control col-md-4", :required => true  %>
     </div>
     <div class="field form-group">
       <%= f.label :address, "Dirección" %><br />
-      <%= f.text_field :address  %>
+      <%= f.text_field :address, class:"form-control col-md-4", :required => true   %>
     </div>
     <div class="field form-group">
       <%= f.label :phone, "Teléfono" %><br />
-      <%= f.text_field :phone  %>
+      <%= f.text_field :phone, class:"form-control col-md-4", :required => true   %>
     </div>
     <div class="field form-group">
       <%= f.label :email, "E-mail"  %><br />
-      <%= f.email_field :email  %>
+      <%= f.email_field :email, class:"form-control col-md-4", :required => true   %>
     </div>
 
     <div class="field form-group">
@@ -24,12 +24,12 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control col-md-4", :required => true  %>
     </div>
 
     <div class="field form-group">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control col-md-4", :required => true  %>
     </div>
 
     <div class="actions form-group">
