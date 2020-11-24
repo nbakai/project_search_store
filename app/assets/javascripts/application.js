@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap/dist/js/bootstrap
+//= require @fortawesome/fontawesome-free/js/all.js
 //= require ahoy
 //= require rails-ujs
 //= require activestorage

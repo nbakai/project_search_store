@@ -19,13 +19,13 @@
     <h5 class="card-title">Horario de atención</h5>
     <p class="card-text"> <%= @storextra.horario_open.strftime("%H:%M") %> a <%= @storextra.horario_close.strftime("%H:%M") %></p>
     <h5 class="card-title">Link página web</h5>
-    <p class="card-text"> <%=link_to "#{@storextra.link_web}", "http://#{@storextra.link_web}", :target => "_blank"%>
-    <h5 class="card-title">Link facebook</h5>
-    <p class="card-text"> <%=link_to "#{@storextra.link_facebook}", "http://#{@storextra.link_facebook}", :target => "_blank"%>
-    <h5 class="card-title">Link instagram</h5>
-    <p class="card-text"> <%=link_to "#{@storextra.link_instagram}", "http://#{@storextra.link_instagram}", :target => "_blank"%>
-    <h5 class="card-title">Link whatsapp</h5>
-    <p class="card-text"> <%=link_to "#{@storextra.link_whatsapp}", "http://#{@storextra.link_whatsapp}", :target => "_blank"%>
+    <p class="card-text"> <%=link_to "#{@storextra.link_web}", "https://#{@storextra.link_web}", :target => "_blank"%>
+    <h5 class="card-title"><i class="fab fa-facebook-square text-white"></i></h5>
+    <p class="card-text"> <%=link_to "#{@storextra.link_facebook}","https://#{@storextra.link_facebook}", :target => "_blank"%> </p>
+    <h5 class="card-title"><i class="fab fa-instagram text-white"></i></h5>
+    <p class="card-text"> <%=link_to "#{@storextra.link_instagram}", "https://#{@storextra.link_instagram}", :target => "_blank"%>
+    <h5 class="card-title"><i class="fab fa-whatsapp-square text-white"></i></h5>
+    <p class="card-text"> <%=link_to "#{@storextra.link_whatsapp}", "https://#{@storextra.link_whatsapp}", :target => "_blank"%>
   </div>
 </div>
 
@@ -42,50 +42,50 @@
 <br>
 <% if store_signed_in? %>
   <% if current_store.id == @storextra.store_id%>
-  <div class="form-group text-md-center"> 
-    <h3>Agrega un nuevo producto: </h3>
-    <%= form_with(model: @product, data: {confirm: 'enviar datos?'}, id: 'form') do |form| %>
-      <div class="field form-group">
-        <%= form.label :name, 'Nombre del producto: '%> <br>
-        <%= form.text_field :name %>
-      </div>
+      <h3 class="text-center">Agrega un nuevo producto: </h3>
+    <div class="form-group text-sm-center formproduct"> 
+      <%= form_with(model: @product, data: {confirm: 'enviar datos?'}, id: 'form') do |form| %>
+        <div class="field form-group ">
+          <%= form.label :name, 'Nombre del producto: '%> <br>
+          <%= form.text_field :name, class:"form-control  col-md-4 ", :required => true%>
+        </div>
 
-      <div class="field form-group">
-        <%= form.label :description, 'Descripción: ' %> <br>
-        <%= form.text_area :description %>
-      </div>
+        <div class="field form-group">
+          <%= form.label :description, 'Descripción: ' %> <br>
+          <%= form.text_area :description, class:"form-control col-md-4", :required => true %>
+        </div>
 
-      <div class="field form-group">
-        <%= form.label :stock, 'Stock: ' %>
-        <%= form.number_field :stock, min: 1 %>
-      </div>
+        <div class="field form-group">
+          <%= form.label :stock, 'Stock: ' %>
+          <%= form.number_field :stock, min: 1, class:"form-control col-md-4", :required => true %>
+        </div>
 
-      <div class="field form-group">
-        <%= form.label :price, 'Precio: ' %>
-        <%= form.number_field :price, min: 0 %>
-      </div>
+        <div class="field form-group">
+          <%= form.label :price, 'Precio: ' %>
+          <%= form.number_field :price, min: 0, class:"form-control col-md-4", :required => true %>
+        </div>
 
-      <div class="field form-group">
-        <%= form.label :sku, 'SKU: ' %>
-        <%= form.text_field :sku %>
-      </div>
-      <div class="field form-group">
-        <label class="btn btn-success"> Agrega la foto del producto aquí
-        <span style="display:none;"> <%= form.file_field :image %> </span>
-        </label>
-      </div>
-      <div class="field form-group">
-        <%= form.hidden_field :store_id, value: current_store.id %>
-      </div>
-      <div class="field form-group">
-        <%= form.hidden_field :storextra_id, value: @storextra.id %>
-      </div>
-      <div class="actions form-group">
-        <button type="submit" class="btn btn-success">Enviar</button>
-      </div>
-    <% end %>
-  <%end%>
-  </div>
+        <div class="field form-group">
+          <%= form.label :sku, 'SKU: ' %>
+          <%= form.text_field :sku, class:"form-control col-md-4", :required => true %>
+        </div>
+        <div class="field form-group">
+          <%= form.label :image, 'Agrega la foto del producto aquí' %> <br>
+          <%= form.file_field :image, class:"form-control col-md-4", :required => true %> 
+        </div>
+        
+        <div class="field form-group">
+          <%= form.hidden_field :store_id, value: current_store.id %>
+        </div>
+        <div class="field form-group">
+          <%= form.hidden_field :storextra_id, value: @storextra.id %>
+        </div>
+        <div class="actions form-group">
+          <button type="submit" class="btn btn-success">Enviar</button>
+        </div>
+      <% end %>
+    <%end%>
+    </div>
 <%end%>
 <h2 class='text-center'>Productos</h2>
 <div class="card-deck">
@@ -98,7 +98,7 @@
                     <div>
                         Precio: <%= product.price %> USD |
                         Stock: <%= product.stock %> |
-                         Producto agregado el: <%= product.created_at %>
+                         Producto agregado el: <%= product.created_at.to_formatted_s(:long) %>
                         <% if !store_signed_in?%>
                           
                           <%= button_to "Agregar al carro", product_orders_path(product.id), class: "btn btn-success", method: :post %>

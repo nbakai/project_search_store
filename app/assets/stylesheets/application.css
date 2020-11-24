@@ -10,10 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require @fortawesome/fontawesome-free/css/all.css
  *= require bootstrap/dist/css/bootstrap
  *= 
  *= require_self
  */
+ 
  @import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
  
  *{
@@ -37,4 +39,6 @@
     width: 100%;
     background-color:#5b85f6;
   }
- 
+ .form-control{
+  margin-left: 32%;
+ }
