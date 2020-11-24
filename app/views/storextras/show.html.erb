@@ -96,7 +96,7 @@
         <div class='card-body'>
                 <div class='card-text'>
                     <div>
-                        Precio: <%= product.price %> USD |
+                        Precio: US $<%= product.price %> |
                         Stock: <%= product.stock %> |
                          Producto agregado el: <%= product.created_at.to_formatted_s(:long) %>
                         <% if !store_signed_in?%>

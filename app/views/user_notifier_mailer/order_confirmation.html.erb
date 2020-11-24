@@ -20,11 +20,12 @@
                 <% total += (@order.product.price * @order.quantity)%>
                 <tr>
                     <td><%= @order.product.name %> </td>
-                    <td><%= number_to_currency(@order.product.price, unit: "CLP$", precision: 0)%> </td>
+                    <td> US $<%= @order.product.price%> </td>
                     <td>|  <%= @order.quantity %> |</td>
-                    <td><%= number_to_currency((@order.product.price*@order.quantity), unit: 'CLP$', precision: 0) %> </td>
+                    <td><%= US $(@order.product.price*@order.quantity) %> </td>
                 </tr>
         </tbody>
     </table>
+    <strong><p>Total: US $<%= total%> </p></strong> 
   </body>
 </html>

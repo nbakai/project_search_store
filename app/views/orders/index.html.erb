@@ -20,9 +20,9 @@
                     <td><%= order.number %> </td>
                     <td><%=image_tag(order.product.image, size: '70x50')%> </td>
                     <td><%= order.product.name %> </td>
-                    <td><%= number_to_currency(order.product.price, unit: "CLP$", precision: 0)%> </td>
-                    <td>  <%= order.quantity %></td>
-                    <td><%= number_to_currency((order.product.price*order.quantity), unit: 'CLP$', precision: 0) %> </td>
+                    <td>US $<%= order.product.price%> </td>
+                    <td><%= order.quantity %></td>
+                    <td>US $<%= (order.product.price*order.quantity) %> </td>
                     <td><%= link_to 'Quitar', destroy_order_path(order.id), method: :delete%> </td>
                 </tr>
             <% end %>
@@ -30,7 +30,7 @@
     </table>
     <div class="row">
         <div class="col text-center">
-         <strong><p>Total: <%= number_to_currency(total, unit: "CLP$", precision: 0)%> </p></strong>  
+         <strong><p>Total: US $<%= total%> </p></strong>  
         </div>
         <div class="col">
            <%= button_to 'Vaciar carrito', clean_orders_path,  class:"btn btn-success", method: :delete %> 
