@@ -6,4 +6,5 @@ class StoreMailer < ApplicationMailer
       @product = product
       mail(to: product.store.email, subject: "Esta es la orden del cliente #{user.email}")
     end
+ 
 end
