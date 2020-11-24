@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
     def create
         
         @product = Product.find(params[:product_id])
-       
         #@order = Order.find_or_create_by(user_id: current_user.id, product_id: @product.id, paid: false)
         if @product && (@product.stock > 0)
             @order = Order.find_or_create_by(user_id: current_user.id, product_id: @product.id, paid: false)
@@ -17,13 +16,14 @@ class OrdersController < ApplicationController
 
             if @order.save! 
                 @user = current_user 
+                
                 # UserNotifierMailer.order_confirmation(@user, @order).deliver
-                redirect_to root_path, notice: 'Se ha añadido el producto al carro'
+                redirect_to storextra_path(@product.storextra_id), notice: 'Se ha añadido el producto al carro'
             else 
-                redirect_to root_path, alert: 'No se ha podido añadir al carro'
+                redirect_to storextra_path(@product.storextra_id), alert: 'No se ha podido añadir al carro'
             end  
         else 
-            redirect_to root_path, alert: 'No se ha podido añadir el producto, al parecer ya no hay stock :('
+            redirect_to storextra_path(@product.storextra_id), alert: 'No se ha podido añadir el producto, al parecer ya no hay stock :('
         end
         
     end
