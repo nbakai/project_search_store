@@ -15,6 +15,7 @@
       <%= f.label :avatar, 'Sube tu foto de perfil aquí' %> <br>
       <%= f.file_field :avatar, class:"form-control col-md-4", :required => true %> 
     </div>
+    <% if f.object.password_required? %>
     <div class="field form-group">
       <%= f.label :password %>
       <% if @minimum_password_length %>
@@ -27,7 +28,7 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control col-md-4", :required => true %>
     </div>
-
+    <%end%>
     <div class="actions form-group">
       <button type="submit" class="btn btn-success">Enviar</button>
     </div>
