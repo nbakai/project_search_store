@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1> Saludos! <%= @user.name %></h1> <br>
+    <h1> Saludos! <%= @product.store.name %></h1> <br>
    
-    <p> Has pedido un email con copia de tu orden de compra en nuestra página a continuación puedes ver los detalles: </p>
+    <p> Esta es una copia de la orden de compra del cliente cuyo nombre es:<%=@user.name%> y su email es <%= @user.email%>, aquí se encuentran los detalles: </p>
   <table>
         <thead>
             <th>Código de orden</th>
@@ -23,7 +23,7 @@
                 <% total += (order.product.price * order.quantity)%>
                 <tr>
                     <td><%= order.number %> |</td>
-                    <td><%= order.product.store.name%> |</td>
+                     <td><%= order.product.store.name%> |</td>
                     <td><%= order.product.name %> |</td>
                     <td>US $<%= order.product.price%> |</td>
                     <td>  <%= order.quantity %> |</td>

@@ -9,14 +9,13 @@ class OrdersController < ApplicationController
         @product = Product.find(params[:product_id])
         #@order = Order.find_or_create_by(user_id: current_user.id, product_id: @product.id, paid: false)
         if @product && (@product.stock > 0)
-            @order = Order.find_or_create_by(user_id: current_user.id, product_id: @product.id, paid: false)
+            @order = Order.find_or_create_by(user_id: current_user.id, product_id: @product.id, paid: false, store_id: @product.store.id)
             @product.stock -= 1
             @product.save!
             @order.quantity += 1 
 
             if @order.save! 
                 @user = current_user 
-                
                 # UserNotifierMailer.order_confirmation(@user, @order).deliver
                 redirect_to storextra_path(@product.storextra_id), notice: 'Se ha añadido el producto al carro'
             else 
@@ -28,9 +27,11 @@ class OrdersController < ApplicationController
         
     end
     def save
+        @product = Product.find_by(params[:product_id])
         @user = current_user 
         @orders = Order.where(user_id: current_user.id, paid: false)
-        UserNotifierMailer.save_order_email(@user, @orders).deliver
+        UserNotifierMailer.save_order_email(@user, @orders, @product).deliver
+        StoreMailer.save_order_mail(@user, @orders, @product).deliver
         redirect_to orders_path, notice: 'Se ha enviado un mail con tu orden'
     end 
 

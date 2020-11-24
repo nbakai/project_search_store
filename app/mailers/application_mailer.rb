@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'emailpararails2020@gmail.com'
+  default from: ENV['EMAIL']
   layout 'mailer'
 end
