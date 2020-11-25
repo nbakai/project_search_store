@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :stores,controllers: {
     registrations: 'stores/registrations',
+    confirmations: 'stores/confirmations',
     sessions: 'stores/sessions'
   }
   devise_for :users, controllers: {

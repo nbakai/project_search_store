@@ -40,8 +40,10 @@ class StorextrasController < ApplicationController
   # POST /storextras
   # POST /storextras.json
   def create
+    @store = current_store
     @storextra = Storextra.new(storextra_params)
-
+    @storextra.id = current_store.id
+    @storextra.save!
     respond_to do |format|
       if @storextra.save
         format.html { redirect_to @storextra, notice: 'Storextra was successfully created.' }
