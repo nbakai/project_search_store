@@ -41,5 +41,5 @@
         * gem 'ransack', github: 'activerecord-hackery/ransack'
         * gem 'paypal-sdk-rest'
         * gem 'rollbar'
-        
-* ![](/app/assets/images/registro.png =200x200)
+
+* <img src="./app/assets/images/registro.png" alt="registro" width="200" height="200"/>      
