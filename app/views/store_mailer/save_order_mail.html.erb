@@ -18,18 +18,17 @@
         </thead>
         <tbody>
             <% total = 0%>
-                <% @orders.each do |order|%>
+              
                 
-                <% total += (order.product.price * order.quantity)%>
+                <% total += (@product.price * @order.quantity)%>
                 <tr>
-                    <td><%= order.number %> |</td>
-                     <td><%= order.product.store.name%> |</td>
-                    <td><%= order.product.name %> |</td>
-                    <td>US $<%= order.product.price%> |</td>
-                    <td>  <%= order.quantity %> |</td>
-                    <td>US $<%= (order.product.price*order.quantity) %> </td>
+                    <td><%= @order.number %> |</td>
+                     <td><%= @product.store.name%> |</td>
+                    <td><%= @product.name %> |</td>
+                    <td>US $<%= @product.price%> |</td>
+                    <td>  <%= @order.quantity %> |</td>
+                    <td>US $<%= (@product.price*@order.quantity) %> </td>
                 </tr>
-                  <% end %>
         </tbody>
     </table>
     <br>

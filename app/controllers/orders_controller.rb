@@ -27,11 +27,16 @@ class OrdersController < ApplicationController
         
     end
     def save
+        
         @product = Product.find_by(params[:product_id])
         @user = current_user 
-        @orders = Order.where(user_id: current_user.id, paid: false, store_id: @product.store.id)
+        @orders = Order.where(user_id: current_user.id, paid: false)
+       
         UserNotifierMailer.save_order_email(@user, @orders, @product).deliver
-        StoreMailer.save_order_mail(@user, @orders, @product).deliver
+        @orders.each do |order|
+            @product = order.product 
+            StoreMailer.save_order_mail(@user, order, @product).deliver
+        end
         redirect_to orders_path, notice: 'Se ha enviado un mail con tu orden'
     end 
 
