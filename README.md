@@ -1,6 +1,4 @@
-# README
-
-* Buscador de tiendas (web app): 
+# Buscador de tiendas (web app): 
 
 
     * Link a tablero con historias de usuario en:
