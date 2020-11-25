@@ -42,4 +42,6 @@
         * gem 'paypal-sdk-rest'
         * gem 'rollbar'
 
-* <img src="./app/assets/images/registro.png" alt="registro" width="200" height="200"/>      
+* Cómo funciona:
+<p>Home de la aplicación
+<img src="./app/assets/images/registro.png" alt="registro" width="300" height="300"/> </p>     
